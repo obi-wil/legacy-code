@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'config';
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: $main-font;
+
+  input, button {
+    font: inherit;
+  }
+}

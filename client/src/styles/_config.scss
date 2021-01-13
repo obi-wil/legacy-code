@@ -1,0 +1,6 @@
+@mixin set-flex-container($w: 70%) {
+  width: $w;
+  display: flex;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
