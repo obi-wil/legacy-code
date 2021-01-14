@@ -16,7 +16,7 @@ const tests = (state = initialTests, action) => {
   };
 };
 
-const initialRole = 'teacher';
+const initialRole = 'student';
 
 const role = (state = initialRole, action) => {
   switch(action.type) {

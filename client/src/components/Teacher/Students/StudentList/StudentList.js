@@ -20,8 +20,8 @@ const StudentList = () => {
           <p 
             test={ss} 
             key={i} 
-            >{ss.name}</p>
-        )) : 'Fetching students!'}
+            >{ss.name}, completed tests: {ss.completedtests.length}</p>
+            )) : 'Fetching students!'}
     </div>
   );
 };

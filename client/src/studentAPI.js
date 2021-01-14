@@ -4,19 +4,19 @@ export function getStudents () {
   return fetchStudents(baseUrl);
 };
 
-export function postStudent (student) {
-  return fetchStudents(baseUrl, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(student)
-  });
-};
+// export function postStudent (student) {
+//   return fetchStudents(baseUrl, {
+//     method: 'POST',
+//     headers: {'Content-Type': 'application/json'},
+//     body: JSON.stringify(student)
+//   });
+// };
 
-export function deleteStudent (id) {
-  return fetchStudents(`${baseUrl}/${id}`, {
-    method: 'DELETE'
-  });
-};
+// export function deleteStudent (id) {
+//   return fetchStudents(`${baseUrl}/${id}`, {
+//     method: 'DELETE'
+//   });
+// };
 
 // export function getStudent () {
 
