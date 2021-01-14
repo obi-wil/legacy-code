@@ -13,9 +13,19 @@ const tests = (state = initialTests, action) => {
       return state.filter(test => test._id !== action.payload);
     default:
       return state;
-  }
-}
+  };
+};
+
+const initialRole = 'teacher';
+
+const role = (state = initialRole, action) => {
+  switch(action.type) {
+    default:
+      return state;
+  };
+};
 
 export default combineReducers({
-  tests
+  tests,
+  role
 });
