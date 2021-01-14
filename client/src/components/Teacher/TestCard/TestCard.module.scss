@@ -17,11 +17,11 @@
     flex: 1;
     display:flex;
     justify-content: center;
-    border: 1px solid grey;
   }
 
   .Bin {
     color: $color-darkest;
+    font-size: 1.2rem;
     
     :hover {
       background-color: blue;

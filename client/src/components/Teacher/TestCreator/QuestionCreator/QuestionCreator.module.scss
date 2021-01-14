@@ -4,18 +4,24 @@
   input {
     outline: none;
     display: block;
-    padding: 8px;
+    padding: 8px 15px;
     width: 70%;
-    margin: 5px auto;
+    margin: 0.5rem auto;
+    font-weight: 300;
   }
-  
+
+  input:nth-child(1) {
+    font-weight: 500;
+    margin-bottom: 1.4rem;
+  }
+
   select {
     padding: 7px 15px;
     font-size: 16px;
     font-family: inherit;
     display: block;
     width: 50%;
-    margin: 15px auto;
+    margin: 2rem auto;
   }
 
   .Button {

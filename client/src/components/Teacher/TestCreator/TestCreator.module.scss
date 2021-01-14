@@ -3,32 +3,52 @@
 .TestCreator {
   
   width: 100%;
-  border: 2px solid blue;
   padding: 3rem 0;
-
+  // background-color: $color-light;
+  
   input {
     outline: none;
     border-radius: 5px;
     border: 1px #ccc solid;
   }
-
-  .Title {
-    width: 70%;
-    display: block;
-    // margin: 0 auto;
-    height: 6vh;
-    padding: 0 12px;
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-
+  
   .QuestionsList {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid green;
     justify-content: space-between;
-    padding: 2.5rem 0;
+    // margin: 0rem auto;
+    // padding: 2.5rem 0;
+    // background-color: $color-light;
+
+    .Message {
+      margin: 0 auto;
+      display: flex;
+    }
+  }
+
+  .SaveTest {
+    background-color: $color-light;
+    margin-top: 3rem;
+
+    .Title {
+      width: 70%;
+      // margin: 0 auto;
+      height: 6vh;
+      padding: 0 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .Warning {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #444;
+    }
+
+    .Hidden {
+      display: none;
+    }
+  
   }
   
 }

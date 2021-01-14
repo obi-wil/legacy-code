@@ -1,8 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchTests, deleteTest } from '../../../store/actions/testActions';
 import TestCard from '../TestCard/TestCard';
+import CreateButton from '../../UI/CreateButton/CreateButton';
 import styles from './TestList.module.scss';
 
 const TestList = () => {
@@ -21,13 +23,16 @@ const TestList = () => {
 
   return (
     <div className={styles.TestList}>
-      {tests.length ? tests.map((test, i) => (
-        <TestCard 
-          test={test} 
-          key={i} 
-          deleteTestHandler={deleteTestHandler}/>
-      )) : 'Fetching tests!'}
-      {/* <Link to="/testcreator"><button>Create test</button></Link> */}
+      <div className={styles.TestListContainer}>
+        {tests.length ? tests.map((test, i) => (
+          <TestCard 
+            test={test} 
+            key={i} 
+            deleteTestHandler={deleteTestHandler}/>
+        )) : 'Fetching tests!'}
+      </div>
+      <Link to="/testcreator"><CreateButton>Create new test</CreateButton></Link>
+      
     </div>
   );
 };

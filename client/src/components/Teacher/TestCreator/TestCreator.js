@@ -12,6 +12,7 @@ const TestCreator = props => {
 
   const [questions, setQuestions] = useState([]);
   const [title, setTitle] = useState('Test 1');
+  const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
     // Retrieve questions from storage
@@ -48,33 +49,40 @@ const TestCreator = props => {
   const dispatch = useDispatch();
 
   const submitTestHandler = () => {
-    dispatch(postTest(questions, title));
-    localStorage.clear();
-    props.history.replace('/tests');
+    if (questions.length < 4) setIsValid(false);
+    else {
+      dispatch(postTest(questions, title));
+      localStorage.clear();
+      props.history.replace('/tests');
+    }
   };
 
-  const addMoreQuestionsMessage = (<p>Tests must have at least 4 questions</p>)
+  const addMoreQuestionsMessage = (<p className={isValid ? styles.Hidden : styles.Warning}>Tests must have at least 4 questions and a title</p>)
 
-  // title + submit inside a form???
   return (
     <div className={styles.TestCreator}>
       <div className={styles.QuestionsList}>      
-        {questions.map((q, i) => (
+        {questions.length ? 
+          questions.map((q, i) => (
           <QuestionCard key={i} quest={q} trashHandler={trashHandler}/>
-          ))}
+          )) : 
+          (<p className={styles.Message}>Start by adding some questions!</p>)
+          }
       </div>
       <QuestionCreator saveQuestion={saveQuestionHandler}/>
-      <div>
-        <input 
-          type='text' 
-          placeholder='Add a test title'
-          onChange={titleHandler}
-          className={styles.Title}/>
+      <div className={styles.SaveTest}>
+        <div>
+          <input 
+            type='text' 
+            placeholder='Add a test title'
+            onChange={titleHandler}
+            className={styles.Title}/>
+        </div>
+        <div>
+          <CreateButton clicked={submitTestHandler}>Save Test</CreateButton>
+        </div>
+        {questions.length < 4 ? addMoreQuestionsMessage : null}
       </div>
-      <div>
-        <CreateButton clicked={submitTestHandler}>Save Test</CreateButton>
-      </div>
-      {questions.length < 4 ? addMoreQuestionsMessage : null} {/* try thisssssssssssss */}
     </div>
   );
 };
