@@ -16,12 +16,15 @@ const TestCreator = props => {
 
   useEffect(() => {
     // Retrieve questions from storage
-    const storedQuestions = [];
-    for (let key of Object.keys(localStorage)) {
-      storedQuestions.push(JSON.parse(localStorage.getItem(key)));
+    const item = JSON.parse(localStorage.getItem('currenttest'));
+    if (!item) localStorage.setItem('currenttest', JSON.stringify({}))
+    else {
+      const storedQuestions = [];
+      for (let key of Object.keys(item)) {
+        storedQuestions.push(item[key]);
+      }
+      if (storedQuestions.length) setQuestions(storedQuestions);
     }
-    if (storedQuestions.length) setQuestions(storedQuestions);
-    
   }, []);
 
   const saveQuestionHandler = (q) => {
@@ -36,11 +39,16 @@ const TestCreator = props => {
     newQuestion.options.map(opt => opt.correct = (opt.op === newQuestion.answer));
     // Update localstorage and state
     setQuestions(currentQ => [...currentQ, newQuestion]);
-    localStorage.setItem(newQuestion.question, JSON.stringify(newQuestion));
+    const currenttest = JSON.parse(localStorage.getItem('currenttest'));
+
+    currenttest[newQuestion.question] = newQuestion
+    localStorage.setItem('currenttest', JSON.stringify(currenttest));
   };
 
   const trashHandler = question => {
-    localStorage.removeItem(question);
+    const currenttest = JSON.parse(localStorage.getItem('currenttest'));
+    delete currenttest[question];
+    localStorage.setItem('currenttest', JSON.stringify(currenttest));
     setQuestions(questions.filter(q => q.question !== question));
   };
 
@@ -83,6 +91,7 @@ const TestCreator = props => {
         </div>
         {questions.length < 4 ? addMoreQuestionsMessage : null}
       </div>
+      {console.log('loading testcreator')}
     </div>
   );
 };

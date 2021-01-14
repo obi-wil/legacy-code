@@ -1,5 +1,6 @@
 const express = require('express');
-const router = require('./router');
+const testrouter = require('./routes/test.routes');
+const studentrouter = require('./routes/student.routes');
 const cors = require('cors');
 
 const db = require('./db');
@@ -7,7 +8,8 @@ const db = require('./db');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use('/test', router);
+app.use('/test', testrouter);
+app.use('/student', studentrouter);
 
 
 const PORT = 3002;

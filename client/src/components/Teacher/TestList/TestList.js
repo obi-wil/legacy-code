@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -12,12 +12,16 @@ const TestList = () => {
   const tests = useSelector(state => state.tests);
   const dispatch = useDispatch();
 
-  const initFetch = useCallback(() => dispatch(fetchTests()), [dispatch]);
+  // const initFetch = useCallback(() => dispatch(fetchTests()), [dispatch]);
+
+  // useEffect(() => {
+  //   console.log('useEffect with usecallback is running')
+  //   initFetch();
+  // }, [initFetch]);
 
   useEffect(() => {
-    console.log('useEffect with usecallback is running')
-    initFetch();
-  }, [initFetch]);
+    dispatch(fetchTests())
+  }, [dispatch]);
 
   const deleteTestHandler = (id) => dispatch(deleteTest(id));
 

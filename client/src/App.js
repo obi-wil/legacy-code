@@ -7,7 +7,7 @@ import Layout from './components/Layout/Layout';
 import TestList from './components/Teacher/TestList/TestList';
 import TestCreator from './components/Teacher/TestCreator/TestCreator';
 import StudentList from './components/Teacher/Students/StudentList/StudentList';
-
+import StudentDashboard from './components/Student/StudentDashboard/StudentDashboard';
 
 const App = props => {
 
@@ -22,10 +22,17 @@ const App = props => {
     </Switch>
   );
 
+  const studentRoutes = (
+    <Switch>  
+      <Route path="/user" exact component={StudentDashboard} /> 
+      <Redirect to="/user" />
+    </Switch>
+  );
+
   return (
     <div className="App">
       <Layout>
-        {role === 'teacher' ? teacherRoutes : 'hello student'}
+        {role === 'teacher' ? teacherRoutes : studentRoutes}
       </Layout>
     </div>
   );
