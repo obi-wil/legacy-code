@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:3002/test';
 
 export function getTests () {
-  console.log('hello')
+  console.log('from clientAPI fetching tests')
   return fetchTests(baseUrl)
 }
 

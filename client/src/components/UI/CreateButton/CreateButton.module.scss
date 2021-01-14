@@ -1,0 +1,14 @@
+@import '../../../styles/App.scss';
+
+.Button {
+  outline: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 7px;
+  border: none;
+  background-color: $color-dark;
+  color: #fff;
+
+  :hover {
+    cursor: pointer;
+  }
+}

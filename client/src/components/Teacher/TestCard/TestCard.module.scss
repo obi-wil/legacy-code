@@ -1,0 +1,16 @@
+@import '../../../styles/App.scss';
+
+.TestCard {
+  background-color: $color-bg2;
+  // border-radius: 10px;
+  width:100%;
+  margin: 10px 0;
+  padding: 1rem 0.5rem;
+  box-shadow: 1px 1px 7px 1px #ccc;
+
+  div {
+    text-align: center;
+    padding: 0.3rem;
+  }
+
+}

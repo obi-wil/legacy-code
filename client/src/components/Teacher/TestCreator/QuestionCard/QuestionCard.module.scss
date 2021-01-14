@@ -1,0 +1,43 @@
+@import '../../../../styles/App.scss';
+
+.QuestionCard {
+  background-color: #fff;
+  // border-radius: 10px;
+  width:48%;
+  margin: 10px 0;
+  padding: 1.5rem 0.5rem;
+  box-shadow: 1px 1px 7px 1px #ccc;
+  position: relative;
+
+  .Trash {
+    color: $color-darkest;
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+  }
+
+  .QuestionTitle {
+    text-align: center;
+    padding: 0.3rem 0.5rem 1.3rem;
+  }
+
+  .Answers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-evenly;
+    justify-content: space-evenly;
+
+    div {
+      width: 40%;
+      margin: 5px 0;
+      padding: 3px;
+      text-align: center;
+      background-color: #eee;
+      border-radius: 5px;
+    }
+    div.Option {
+      background-color: $color-light;
+    }
+
+  }
+}

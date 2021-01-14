@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './styles/App.scss';
-import { fetchTests } from './store/actions/testActions';
+import Layout from './components/Layout/Layout';
+import TestList from './components/Teacher/TestList/TestList';
+import TestCreator from './components/Teacher/TestCreator/TestCreator';
+
 
 const App = props => {
 
-  const tests = useSelector(state => state.tests);
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    dispatch(fetchTests());
-  }, []);
-
-
   return (
     <div className="App">
-      {console.log(tests)}
-      hello
+      <Layout>
+        <Switch>  
+          <Route path="/tests" exact component={TestList} /> 
+          <Route path="/testcreator" exact component={TestCreator} /> 
+          <Redirect to="/tests" />
+        </Switch>
+      </Layout>
     </div>
   );
 }

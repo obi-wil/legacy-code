@@ -1,0 +1,10 @@
+@import '../../styles/App.scss';
+
+.Layout {
+  width: 100%;
+}
+
+.Content {
+  @include set-flex-container();
+  flex-wrap: wrap;
+}
