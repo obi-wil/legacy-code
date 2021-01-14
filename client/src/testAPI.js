@@ -1,23 +1,22 @@
 const baseUrl = 'http://localhost:3002/test';
 
 export function getTests () {
-  return fetchTests(baseUrl)
-}
+  return fetchTests(baseUrl);
+};
 
 export function postTest (test) {
-  console.log('from clientAPI POSTING tests')
   return fetchTests(baseUrl, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(test)
-  })
-}
+  });
+};
 
 export function deleteTest (id) {
   return fetchTests(`${baseUrl}/${id}`, {
     method: 'DELETE'
-  })
-}
+  });
+};
 
 // export function getTest () {
 

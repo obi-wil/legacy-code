@@ -1,14 +1,14 @@
 const student = require('../models/student.model');
 
-// const getTests = async (req, res) => {
-//   try {
-//     const result = await student.find();
-//     res.send(result);
-//   } catch (e) {
-//     res.status(500);
-//     res.send(e);
-//   }
-// };
+const getStudents = async (req, res) => {
+  try {
+    const result = await student.find();
+    res.send(result);
+  } catch (e) {
+    res.status(500);
+    res.send(e);
+  }
+};
 
 const postStudent = async (req, res) => {
   try {
@@ -57,4 +57,4 @@ const postStudent = async (req, res) => {
 //   }
 // };
 
-module.exports = { postStudent };
+module.exports = { postStudent, getStudents };

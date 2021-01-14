@@ -1,23 +1,23 @@
 import * as actionTypes from './actionTypes';
-import * as clientAPI from '../../clientAPI';
+import * as testAPI from '../../testAPI';
 
 export const fetchTests = () => {
   return dispatch => {
-    clientAPI.getTests()
+    testAPI.getTests()
       .then(data => dispatch({type: actionTypes.GET_TESTS, payload: data}));
   };
 };
 
 export const postTest = (questions, title) => {
   return dispatch => {
-    clientAPI.postTest({questions, title})
+    testAPI.postTest({questions, title})
       .then(data => dispatch({type: actionTypes.POST_TEST, payload: data}));
   };
 };
 
 export const deleteTest = (id) => {
   return dispatch => {
-    clientAPI.deleteTest(id)
+    testAPI.deleteTest(id)
       .then(data => dispatch({type: actionTypes.DELETE_TEST, payload: id}));
   };
 };

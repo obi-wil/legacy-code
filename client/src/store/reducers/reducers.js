@@ -25,7 +25,19 @@ const role = (state = initialRole, action) => {
   };
 };
 
+const initialStudentList = [];
+
+const students = (state = initialStudentList, action) => {
+  switch(action.type) {
+    case actionTypes.GET_STUDENTS:
+      return action.payload;
+    default:
+      return state;
+  };
+};
+
 export default combineReducers({
   tests,
-  role
+  role,
+  students
 });

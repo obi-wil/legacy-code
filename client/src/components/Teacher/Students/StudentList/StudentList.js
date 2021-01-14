@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchStudents } from '../../../../store/actions/studentListActions';
+
 
 import styles from './StudentList.module.scss';
 
 const StudentList = () => {
+
+  const students = useSelector(state => state.students);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchStudents());
+  }, [dispatch]);
+
   return (
     <div className={styles.StudentList}>
-      hello from student list
+      {students.length ? students.map((ss, i) => (
+          <p 
+            test={ss} 
+            key={i} 
+            >{ss.name}</p>
+        )) : 'Fetching students!'}
     </div>
   );
 };

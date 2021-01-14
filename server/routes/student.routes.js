@@ -2,7 +2,7 @@ const router = require('express').Router();
 const contr = require('../controller/student.controller');
 
 router.post('/', contr.postStudent);
-// router.get('/', contr.getTests);
+router.get('/', contr.getStudents);
 // router.post('/', contr.postTest);
 // router.get('/:id', contr.getTest);
 // router.put('/:id', contr.editTest);
