@@ -1,5 +1,4 @@
 .QuestionCreator {
-
   margin-top: 50px;
 
   input {
@@ -7,12 +6,20 @@
     display: block;
     padding: 8px;
     width: 70%;
-    margin: 5px;
+    margin: 5px auto;
   }
-
+  
   select {
     padding: 7px 15px;
     font-size: 16px;
     font-family: inherit;
+    display: block;
+    width: 50%;
+    margin: 15px auto;
+  }
+
+  .Button {
+    margin: 20px auto;
+    width: 70%;
   }
 }

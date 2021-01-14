@@ -6,12 +6,14 @@ const initialTests = [];
 const tests = (state = initialTests, action) => {
   switch(action.type) {
     case actionTypes.GET_TESTS:
-      
       return action.payload;
+    case actionTypes.POST_TEST:
+      return action.payload;
+    case actionTypes.DELETE_TEST:
+      return state.filter(test => test._id !== action.payload);
     default:
       return state;
   }
-
 }
 
 export default combineReducers({

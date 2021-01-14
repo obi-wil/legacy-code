@@ -1,4 +1,4 @@
-@mixin set-flex-container($w: 70%) {
+@mixin set-flex-container($w: 80%) {
   width: $w;
   display: flex;
   box-sizing: border-box;

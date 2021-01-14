@@ -9,7 +9,7 @@
   box-shadow: 1px 1px 7px 1px #ccc;
   position: relative;
 
-  .Trash {
+  .Bin {
     color: $color-darkest;
     position: absolute;
     bottom: 7px;
@@ -35,6 +35,7 @@
       background-color: #eee;
       border-radius: 5px;
     }
+    
     div.Option {
       background-color: $color-light;
     }

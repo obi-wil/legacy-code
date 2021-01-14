@@ -35,10 +35,9 @@ const getTest = async (req, res) => {
 const deleteTest = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id)
     await test.deleteOne({_id: id});
-    res.send('ok');
     res.status(204);
+    res.send('ok');
   } catch (e) {
     res.status(500);
     res.send(e);

@@ -5,12 +5,27 @@
   // border-radius: 10px;
   width:100%;
   margin: 10px 0;
-  padding: 1rem 0.5rem;
+  padding: 1.5rem 1.5rem;
   box-shadow: 1px 1px 7px 1px #ccc;
+  display: flex;
 
-  div {
-    text-align: center;
-    padding: 0.3rem;
+  .TestInfo {
+    flex: 7;
+  }
+
+  .TestActions {
+    flex: 1;
+    display:flex;
+    justify-content: center;
+    border: 1px solid grey;
+  }
+
+  .Bin {
+    color: $color-darkest;
+    
+    :hover {
+      background-color: blue;
+    }
   }
 
 }

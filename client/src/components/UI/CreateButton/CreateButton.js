@@ -4,7 +4,11 @@ import styles from './CreateButton.module.scss';
 
 const CreateButton = props => {
   return (
-    <button onClick={props.clicked} className={styles.Button}>{props.children}</button>
+    <button 
+      onClick={props.clicked} 
+      className={styles.Button}
+      type={props.type}
+    >{props.children}</button>
   )
 };
 

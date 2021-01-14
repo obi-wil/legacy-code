@@ -9,9 +9,9 @@ const TestSchema = mongoose.Schema({
     options: {type: [], required: true},
     answer: {type: String, required: true}
   }],
-  assignedto: [String],
-  finishedby: [String],
-  type: {type: String, default: "syllable quiz", required: true}
+  assignedto: {type: [String], required: true, default: []},
+  finishedby: {type: [String], required: true, default: []},
+  testtype: {type: String, default: "syllable quiz", required: true}
 });
 
 const test = db.conn.model('test', TestSchema);
