@@ -78,20 +78,18 @@ const TestCreator = props => {
           }
       </div>
       <QuestionCreator saveQuestion={saveQuestionHandler}/>
+      <hr className={styles.LineBreak}/>
       <div className={styles.SaveTest}>
-        <div>
           <input 
             type='text' 
             placeholder='Add a test title'
             onChange={titleHandler}
             className={styles.Title}/>
-        </div>
-        <div>
+        <div className={styles.TestButtonDiv}>
           <CreateButton clicked={submitTestHandler}>Save Test</CreateButton>
         </div>
         {questions.length < 4 ? addMoreQuestionsMessage : null}
       </div>
-      {console.log('loading testcreator')}
     </div>
   );
 };
