@@ -1,0 +1,46 @@
+@import '../../../../styles/App.scss';
+
+.PendingTest {
+  // color: $color-darkest;
+  // border: 1px solid #ccc;
+  width: 90%;
+  margin: 1rem 0;
+  padding: 2rem;
+  box-shadow: 1px 1px 7px 1px #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  p {
+    font-size: 2rem;
+    margin: 0;
+    display: flex;
+    width: fit-content;
+  }
+  
+  .Go {
+    font-size: 1.6rem;
+    background-color: $color-dark;
+    color: $color-bg2;
+    font-weight: 500;
+    padding: 15px;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+  }
+
+  .Go:hover {
+    cursor: pointer;
+  }
+  
+  .Go:active {
+    border-top: 3px solid transparent;
+    border-left: 1px solid transparent;
+  }
+
+}

@@ -12,6 +12,7 @@ const StudentDashboard = () => {
 
   useEffect(() => {
     dispatch(fetchStudent());
+    console.log(student)
   }, [dispatch]);
   
   return (
