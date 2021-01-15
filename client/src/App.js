@@ -31,7 +31,7 @@ const App = props => {
 
   return (
     <div className="App">
-      <Layout>
+      <Layout role={role}>
         {role === 'teacher' ? teacherRoutes : studentRoutes}
       </Layout>
     </div>

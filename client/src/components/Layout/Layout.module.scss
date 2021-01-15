@@ -4,7 +4,13 @@
   width: 100%;
 }
 
-.Content {
+
+.teacher {
   @include set-flex-container();
+  flex-wrap: wrap;
+}
+
+.student {
+  @include set-flex-container(100%);
   flex-wrap: wrap;
 }

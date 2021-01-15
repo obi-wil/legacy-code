@@ -1,5 +1,31 @@
 @import '../../../styles/App.scss';
 
 .StudentDashboard {
-  border: 2px solid #ccc;
+  width: 100%;
+  background-color: $color-dark;
+  height: 92vh;
+  position: relative;
+
+
 }
+
+// .Content {
+  //   border: 2px green solid;
+  //   // background-color: #ccc;
+  //   position: fixed;
+  //   top: 8vh;
+  //   left: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   z-index: 300;
+  // }
+  
+  // .StudentDashboardBg {
+  //   background-color: #fff;
+  //   position: fixed;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 40%;
+  //   width: 100%;
+  //   z-index: 200;
+  // }

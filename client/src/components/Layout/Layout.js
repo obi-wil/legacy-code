@@ -6,9 +6,9 @@ import styles from './Layout.module.scss';
 const Layout = props => {
   return (
     <div className={styles.Layout}>
-      <NavBar/>
+      <NavBar role={props.role}/>
       {console.log('reloading layout')}
-      <div className={styles.Content}>{props.children}</div>
+      <div className={styles[props.role]}>{props.children}</div>
     </div>
   )
 };

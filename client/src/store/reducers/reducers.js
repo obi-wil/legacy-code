@@ -4,7 +4,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialTests = [];
 
 const tests = (state = initialTests, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.GET_TESTS:
       return action.payload;
     case actionTypes.POST_TEST:
@@ -13,31 +13,43 @@ const tests = (state = initialTests, action) => {
       return state.filter(test => test._id !== action.payload);
     default:
       return state;
-  };
+  }
 };
 
 const initialRole = 'student';
 
 const role = (state = initialRole, action) => {
-  switch(action.type) {
+  switch (action.type) {
     default:
       return state;
-  };
+  }
 };
 
 const initialStudentList = [];
 
 const students = (state = initialStudentList, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.GET_STUDENTS:
       return action.payload;
     default:
       return state;
-  };
+  }
+};
+
+const initalCurrentStudent = {};
+
+const currentStudent = (state = initalCurrentStudent, action) => {
+  switch (action.type) {
+    case actionTypes.GET_STUDENT:
+      return action.payload;
+    default:
+      return state;
+  }
 };
 
 export default combineReducers({
   tests,
   role,
-  students
+  students,
+  currentStudent,
 });

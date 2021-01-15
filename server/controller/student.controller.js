@@ -21,16 +21,16 @@ const postStudent = async (req, res) => {
   }
 };
 
-// const getTest = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const result = await student.findOne({_id: id});
-//     res.send(result);
-//   } catch (e) {
-//     res.status(500);
-//     res.send(e);
-//   }
-// };
+const getStudent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await student.findOne({_id: id});
+    res.send(result);
+  } catch (e) {
+    res.status(500);
+    res.send(e);
+  }
+};
 
 // const deleteTest = async (req, res) => {
 //   try {
@@ -57,4 +57,4 @@ const postStudent = async (req, res) => {
 //   }
 // };
 
-module.exports = { postStudent, getStudents };
+module.exports = { postStudent, getStudents, getStudent };

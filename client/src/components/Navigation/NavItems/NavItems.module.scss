@@ -26,12 +26,19 @@
       border-radius: 6px 6px 0 0;
       cursor: default;
     }
-    :hover {
-      margin-top: 5px;
-      cursor: pointer;
+    // a:hover {
+    //   margin-top: 5px;
+    //   cursor: pointer;
+
+    // }
 
   }
 
+  
 }
 
+.Welcome {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }

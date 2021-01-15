@@ -8,6 +8,14 @@ export const fetchStudents = () => {
   };
 };
 
+export const fetchStudent = () => {
+  return dispatch => {
+    studentAPI.getStudent('6000a59870723cc5f2280626')
+      .then(data => dispatch({type: actionTypes.GET_STUDENT, payload: data}));
+  };
+};
+
+
 // export const postStudent = (questions, title) => {
 //   return dispatch => {
 //     studentAPI.postStudent({questions, title})

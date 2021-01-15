@@ -5,5 +5,6 @@ export const DELETE_TEST = 'DELETE_TEST';
 
 // For student list
 export const GET_STUDENTS = 'GET_STUDENTS';
+export const GET_STUDENT = 'GET_STUDENT';
 export const POST_STUDENT = 'POST_STUDENT';
 export const DELETE_STUDENT = 'DELETE_STUDENT';

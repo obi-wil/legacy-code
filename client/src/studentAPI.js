@@ -18,12 +18,12 @@ export function getStudents () {
 //   });
 // };
 
-// export function getStudent () {
+export function getStudent (id) {
+  return fetchStudents(`${baseUrl}/${id}`, {
+    method: 'GET'
+  })
+}
 
-//   return fetchStudents(`${baseUrl}.json`, {
-//     method: 'GET'
-//   })
-// }
 // export function updateStudent (id, dir) {
 
 //   return fetchStudents(`${baseUrl}/${id}/${dir}`, {

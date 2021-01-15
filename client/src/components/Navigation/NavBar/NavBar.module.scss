@@ -7,11 +7,24 @@
   color: #fff;
 }
 
-.Container {
+.teacher {
   @include set-flex-container();
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  font-weight: 500;
+  height: 100%;
+
+  nav {
+    height: 100%;
+  }
+}
+
+.student {
+  @include set-flex-container(100%);
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.6rem;
   font-weight: 500;
   height: 100%;
 
