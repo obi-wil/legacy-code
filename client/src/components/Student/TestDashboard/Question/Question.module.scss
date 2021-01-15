@@ -1,0 +1,9 @@
+@import '../../../../styles/App.scss';
+
+.Question {
+  display: flex;
+  justify-content: center;
+  font-size: $font-size-t1;
+  // padding: 10vh 10vw;
+  height: 100%;
+}

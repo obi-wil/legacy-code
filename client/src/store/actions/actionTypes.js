@@ -8,3 +8,6 @@ export const GET_STUDENTS = 'GET_STUDENTS';
 export const GET_STUDENT = 'GET_STUDENT';
 export const POST_STUDENT = 'POST_STUDENT';
 export const DELETE_STUDENT = 'DELETE_STUDENT';
+
+// For quizz (no answers)
+export const GET_CURRENTTEST = 'GET_CURRENTTEST';

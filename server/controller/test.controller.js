@@ -21,6 +21,8 @@ const postTest = async (req, res) => {
   }
 };
 
+// Not using yet
+
 const getTest = async (req, res) => {
   try {
     const { id } = req.params;
@@ -44,6 +46,7 @@ const deleteTest = async (req, res) => {
   }
 };
 
+// Not using yet
 const editTest = async (req, res) => {
   try {
     const { id } = req.params;

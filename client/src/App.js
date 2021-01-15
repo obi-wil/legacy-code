@@ -8,6 +8,7 @@ import TestList from './components/Teacher/TestList/TestList';
 import TestCreator from './components/Teacher/TestCreator/TestCreator';
 import StudentList from './components/Teacher/Students/StudentList/StudentList';
 import StudentDashboard from './components/Student/StudentDashboard/StudentDashboard';
+// import TestDashboard from './components/Student/TestDashboard/TestDashboard';
 
 const App = props => {
 
@@ -25,6 +26,7 @@ const App = props => {
   const studentRoutes = (
     <Switch>  
       <Route path="/user" exact component={StudentDashboard} /> 
+      {/* <Route path="/testdashboard" exact component={TestDashboard} />  */}
       <Redirect to="/user" />
     </Switch>
   );

@@ -16,7 +16,7 @@ const tests = (state = initialTests, action) => {
   }
 };
 
-const initialRole = 'student';
+const initialRole = 'teacher';
 
 const role = (state = initialRole, action) => {
   switch (action.type) {
@@ -47,9 +47,21 @@ const currentStudent = (state = initalCurrentStudent, action) => {
   }
 };
 
+const initialCurrentTest = {};
+const currentTest = (state = initialCurrentTest, action) => {
+  switch (action.type) {
+    case actionTypes.GET_CURRENTTEST:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+
 export default combineReducers({
   tests,
   role,
   students,
   currentStudent,
+  currentTest
 });
