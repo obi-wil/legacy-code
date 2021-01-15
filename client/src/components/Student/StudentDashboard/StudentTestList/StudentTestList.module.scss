@@ -1,0 +1,35 @@
+@import '../../../../styles/App.scss';
+
+.ListType {
+  color: $color-darkest;
+  font-size: 1.5rem;
+  margin: 1rem auto 0;
+  width:fit-content;
+  height: 4rem;
+  padding: 20px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+  background-color: $color-bg2;
+  z-index: 200;
+  position: relative;
+  border: 5px solid $color-dark;
+  // transform: rotate(-2deg);
+}
+
+
+.StudentTestList {
+  margin: -2rem auto 4rem;
+  width: 90%;
+  background-color: $color-bg2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: $br-xl;
+  padding: 3rem 0 1.5rem;
+  z-index: 100;
+  position: relative;
+
+
+}

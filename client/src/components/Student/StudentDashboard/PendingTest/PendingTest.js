@@ -5,7 +5,9 @@ const PendingTest = props => {
 
   return (
     <div className={styles.PendingTest}>
-      <p>{props.test.title}</p>
+      <div className={styles.TestTitle}>
+        <p>{props.test.title}</p>
+      </div>
       <button className={styles.Go}>
         GO!
       </button>

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchStudent } from '../../../store/actions/studentListActions';
 
 import React, { useEffect } from 'react';
-import PendingTests from './PendingTests/PendingTests';
+import StudentTestList from './StudentTestList/StudentTestList';
 
 const StudentDashboard = () => {
   const student = useSelector(state => state.currentStudent);
@@ -12,13 +12,15 @@ const StudentDashboard = () => {
 
   useEffect(() => {
     dispatch(fetchStudent());
-    console.log(student)
   }, [dispatch]);
   
   return (
     <div className={styles.StudentDashboard}>
-      <div className={styles.PendingTestsContainer}>
-        <PendingTests student={student}/>
+      <div>
+        <StudentTestList student={student} listType={'pendingtests'}/>
+      </div>
+      <div>
+        <StudentTestList student={student} listType={'completetedtests'}/>
       </div>
     </div>
     );
