@@ -3,11 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import Question from './Question/Question';
 import styles from './TestDashboard.module.scss';
 
+// Only now
+import { fetchQuizz } from '../../../store/actions/testActions';
+
+
 
 const TestDashboard = props => {
 
   const [currentQ, setCurrentQ] = useState(0);
   const quizz = useSelector(state => state.currentQuizz);
+
+  
+  // Only now
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchQuizz('6000a17770723cc5f2280620')), []);
 
   const question = quizz.questions ? 
     (<Question question={quizz.questions[currentQ]}/>) :
@@ -17,6 +26,7 @@ const TestDashboard = props => {
     <div className={styles.TestDashboard}>
       <div className={styles.Content}>
         {question}
+        {console.log(quizz)}
       </div>
       <div className={styles.Contentbg}/>
     </div>
