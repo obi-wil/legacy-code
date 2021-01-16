@@ -2,7 +2,7 @@ const test = require('../models/test.model');
 
 const checkAnswer = async (req, res) => {
 
-  const { testid, answer } = req.body;
+  const { testid, answer, qid } = req.body;
   let currentTest;
 
   if (req.session) {
@@ -19,12 +19,8 @@ const checkAnswer = async (req, res) => {
     currentTest = req.test;
   }
 
-  const { qid } = req.params;
-
+  // const { qid } = req.params;
   validateAnswer(currentTest, qid, answer);
-  
-
-
   res.send(validateAnswer(currentTest, qid, answer))
 };
 
@@ -40,8 +36,7 @@ const getQuizz = async (req, res) => {
   }
 };
 
-module.exports = { getQuizz, checkAnswer };
-
+// Helper functions
 const hideAnswers = testObj => {
   testObj.questions = testObj.questions.map((q) => {
     q.options = q.options.map((opt) => opt.op);
@@ -57,3 +52,5 @@ const validateAnswer = (test, qid, answer) => {
   }
   return false;
 };
+
+module.exports = { getQuizz, checkAnswer };

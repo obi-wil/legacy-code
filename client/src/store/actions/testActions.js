@@ -32,3 +32,11 @@ export const fetchQuizz = (id) => {
       .then(data => dispatch({ type: actionTypes.GET_CURRENTQUIZZ, payload: data }));
   };
 };
+
+export const checkUserAnswer = (answerObject) => {
+  return dispatch => {
+    testAPI
+      .checkAnswer(answerObject)
+      .then(data => dispatch({ type: actionTypes.POST_CHECK_ANSWER, payload: {data, answerObject}}));
+  };
+};

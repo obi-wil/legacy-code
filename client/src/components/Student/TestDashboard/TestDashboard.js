@@ -12,21 +12,30 @@ const TestDashboard = props => {
 
   const [currentQ, setCurrentQ] = useState(0);
   const quizz = useSelector(state => state.currentQuizz);
-
   
   // Only now
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchQuizz('6000a17770723cc5f2280620')), []);
+  useEffect(() => {
+    dispatch(fetchQuizz('6000a17770723cc5f2280620'));
+  }, []);
+
+  const nextButton = () => {
+    setCurrentQ(current => current + 1);
+  }
 
   const question = quizz.questions ? 
-    (<Question question={quizz.questions[currentQ]}/>) :
+    (<Question 
+      question={quizz.questions[currentQ]} 
+      testid={quizz._id}
+      currQuest={currentQ}
+      nextButton={nextButton}
+    />) :
     'Loading';
 
   return (
     <div className={styles.TestDashboard}>
       <div className={styles.Content}>
         {question}
-        {console.log(quizz)}
       </div>
       <div className={styles.Contentbg}/>
     </div>

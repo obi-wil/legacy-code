@@ -34,9 +34,16 @@ export function deleteTest (id) {
 export function getQuizz (id) {
   return fetchTests(`${baseUrl}/quizz/${id}`, {
     method: 'GET'
-  })
-}
+  });
+};
 
+export function checkAnswer (answerObj) {
+  return fetchTests(`${baseUrl}/quizz`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(answerObj)
+  });
+};
 
 function fetchTests (url, options) {
   return fetch(url, options)

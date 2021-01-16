@@ -58,11 +58,29 @@ const currentQuizz = (state = initialCurrentQuizz, action) => {
   };
 };
 
+const initialProgress = [];
+
+const progress = (state = initialProgress, action) => {
+  switch (action.type) {
+    case actionTypes.POST_CHECK_ANSWER:
+      const result = {
+        qid: action.payload.answerObject.qid,
+        option: action.payload.answerObject.answer,
+        question: action.payload.answerObject.question,
+        correct: action.payload.data
+      };
+      return [...state, result];
+    default:
+      return state;
+  };
+}
+
 
 export default combineReducers({
   tests,
   role,
   students,
   currentStudent,
-  currentQuizz
+  currentQuizz,
+  progress
 });
