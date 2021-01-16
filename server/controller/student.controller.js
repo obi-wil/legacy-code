@@ -44,17 +44,17 @@ const getStudent = async (req, res) => {
 //   }
 // };
 
-// const editTest = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     await student.updateOne({_id: id}, req.body);
-//     const result = await student.findOne({_id: id});
-//     res.send(result);
-//     res.status(200);
-//   } catch (e) {
-//     res.status(500);
-//     res.send(e);
-//   }
-// };
+const updateStudent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await student.updateOne({_id: id}, req.body);
+    const result = await student.findOne({_id: id});
+    res.send(result);
+    res.status(200);
+  } catch (e) {
+    res.status(500);
+    res.send(e);
+  }
+};
 
-module.exports = { postStudent, getStudents, getStudent };
+module.exports = { postStudent, getStudents, getStudent, updateStudent };

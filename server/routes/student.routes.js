@@ -5,7 +5,7 @@ router.post('/', contr.postStudent);
 router.get('/', contr.getStudents);
 router.get('/:id', contr.getStudent);
 // router.post('/', contr.postTest);
-// router.put('/:id', contr.editTest);
+router.put('/:id', contr.updateStudent);
 // router.delete('/:id', contr.deleteTest);
 
 module.exports = router;

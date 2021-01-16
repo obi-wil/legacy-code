@@ -16,14 +16,12 @@ const Question = props => {
 
   const submitAnswerHandler = (userAnswer) => {
 
-    // DISABLEBUTTONS
-    
     const answerObject = {
       learner: true,
       answer: userAnswer,
       qid: props.question._id,
       question: props.question.question,
-      testid: props.testid
+      testid: props.quizz._id
     };
     dispatch(checkUserAnswer(answerObject));
     setuserIsAnswering(false);
@@ -35,8 +33,29 @@ const Question = props => {
   }
 
   const nextButtonHandler = () => {
-    setuserIsAnswering(true) // HERE
-    props.nextButton();
+    if (props.currQuest === props.quizz.questions.length - 1) {
+      setuserIsAnswering(true) // HERE
+      props.nextButton(true); // maybe tomeouthere
+
+      // Create results object with progress -> update student (pending and completed)
+      const correct = progress.filter(question => question.correct).length;
+      const completedTest = {
+        id: props.quizz._id,
+        title: props.quizz.title,
+        result: {
+          percentage: Math.round(correct / props.quizz.questions.length * 100),
+          questions: progress
+        }
+      };
+      
+      console.log(completedTest)
+
+      // Empty progress
+      // Go to results page
+    } else {
+      setuserIsAnswering(true) // HERE
+      props.nextButton(false);
+    }
   }
 
   return (

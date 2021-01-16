@@ -17,16 +17,16 @@ const TestDashboard = props => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchQuizz('6000a17770723cc5f2280620'));
-  }, []);
+  }, [dispatch]);
 
-  const nextButton = () => {
-    setCurrentQ(current => current + 1);
-  }
+  const nextButton = (end) => {
+    end ? setCurrentQ(0) : setCurrentQ(current => current + 1)
+  };
 
   const question = quizz.questions ? 
     (<Question 
-      question={quizz.questions[currentQ]} 
-      testid={quizz._id}
+      question={quizz.questions[currentQ]}
+      quizz={quizz}
       currQuest={currentQ}
       nextButton={nextButton}
     />) :
