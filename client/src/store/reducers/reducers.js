@@ -13,16 +13,16 @@ const tests = (state = initialTests, action) => {
       return state.filter(test => test._id !== action.payload);
     default:
       return state;
-  }
+  };
 };
 
-const initialRole = 'teacher';
+const initialRole = 'student';
 
 const role = (state = initialRole, action) => {
   switch (action.type) {
     default:
       return state;
-  }
+  };
 };
 
 const initialStudentList = [];
@@ -33,7 +33,7 @@ const students = (state = initialStudentList, action) => {
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
 const initalCurrentStudent = {};
@@ -44,17 +44,18 @@ const currentStudent = (state = initalCurrentStudent, action) => {
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
-const initialCurrentTest = {};
-const currentTest = (state = initialCurrentTest, action) => {
+const initialCurrentQuizz = {};
+
+const currentQuizz = (state = initialCurrentQuizz, action) => {
   switch (action.type) {
-    case actionTypes.GET_CURRENTTEST:
+    case actionTypes.GET_CURRENTQUIZZ:
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
 
@@ -63,5 +64,5 @@ export default combineReducers({
   role,
   students,
   currentStudent,
-  currentTest
+  currentQuizz
 });

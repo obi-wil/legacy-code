@@ -24,3 +24,11 @@ export const deleteTest = id => {
       .then(data => dispatch({ type: actionTypes.DELETE_TEST, payload: id }));
   };
 };
+
+export const fetchQuizz = (id) => {
+  return dispatch => {
+    testAPI
+      .getQuizz('6000a17770723cc5f2280620')
+      .then(data => dispatch({ type: actionTypes.GET_CURRENTQUIZZ, payload: data }));
+  };
+};

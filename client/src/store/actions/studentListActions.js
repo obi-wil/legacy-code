@@ -10,7 +10,7 @@ export const fetchStudents = () => {
 
 export const fetchStudent = () => {
   return dispatch => {
-    studentAPI.getStudent('6000a59870723cc5f2280626')
+    studentAPI.getStudent('6002105982bc5ff80956aeba')
       .then(data => dispatch({type: actionTypes.GET_STUDENT, payload: data}));
   };
 };

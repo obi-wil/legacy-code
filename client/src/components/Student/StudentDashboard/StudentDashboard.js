@@ -1,11 +1,10 @@
-import styles from './StudentDashboard.module.scss';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import styles from './StudentDashboard.module.scss';
 import { fetchStudent } from '../../../store/actions/studentListActions';
 
-import React, { useEffect } from 'react';
 import StudentTestList from './StudentTestList/StudentTestList';
-import TestDashboard from '../TestDashboard/TestDashboard';
 
 const StudentDashboard = () => {
   const student = useSelector(state => state.currentStudent);
@@ -14,18 +13,23 @@ const StudentDashboard = () => {
   useEffect(() => {
     dispatch(fetchStudent());
   }, [dispatch]);
+
+  // This will update currentQuizz state
+  
   
   return (
     <React.Fragment>
       <div className={styles.StudentDashboard}>
         <div>
-          <StudentTestList student={student} listType={'pendingtests'}/>
+          <StudentTestList 
+            student={student} 
+            listType={'pendingtests'}
+          />
         </div>
         <div>
           <StudentTestList student={student} listType={'completetedtests'}/>
         </div>
       </div>
-      <TestDashboard />
     </React.Fragment>
     );
 };

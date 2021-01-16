@@ -1,11 +1,11 @@
-const baseUrl = 'http://localhost:3002/test';
+const baseUrl = 'http://localhost:3002';
 
 export function getTests () {
-  return fetchTests(baseUrl);
+  return fetchTests(`${baseUrl}/test`);
 };
 
 export function postTest (test) {
-  return fetchTests(baseUrl, {
+  return fetchTests(`${baseUrl}/test`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(test)
@@ -18,18 +18,24 @@ export function deleteTest (id) {
   });
 };
 
-// export function getTest () {
 
-//   return fetchTests(`${baseUrl}.json`, {
+// export function getTest () {
+//   return fetchTests(`${baseUrl}/test`, {
 //     method: 'GET'
 //   })
 // }
-// export function updateTest (id, dir) {
 
+// export function updateTest (id, dir) {
 //   return fetchTests(`${baseUrl}/${id}/${dir}`, {
 //     method: 'PUT'
 //   })
 // }
+
+export function getQuizz (id) {
+  return fetchTests(`${baseUrl}/quizz/${id}`, {
+    method: 'GET'
+  })
+}
 
 
 function fetchTests (url, options) {

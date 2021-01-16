@@ -11,7 +11,7 @@ const TestSchema = mongoose.Schema({
   completedtests: [{
     id: String,
     title: String,
-    result: [{
+    result: {
       percentage: Number,
       questions: [{
         question: String,
@@ -19,7 +19,7 @@ const TestSchema = mongoose.Schema({
         option: String,
         correct: Boolean
       }]
-    }]
+    }
   }]
 });
 
@@ -29,7 +29,7 @@ module.exports = student;
 
 
 // {
-//   "name":"Leo",
+//   "name":"Sara Gómez",
 //   "pendingtests": [
 //       {
 //       "id":"600020b2c3ba22ab842c531f",
@@ -44,7 +44,7 @@ module.exports = student;
 //       {
 //       "id":"60001fcac3ba22ab842c5319",
 //       "title":"Count the syllables! (1)",
-//       "result":[
+//       "result":
 //           {
 //             "percentage":80,
 //             "questions": [
@@ -80,7 +80,7 @@ module.exports = student;
 //             }
 //           ]
 //           }
-//         ],
+//         ,
         
       
 //       }

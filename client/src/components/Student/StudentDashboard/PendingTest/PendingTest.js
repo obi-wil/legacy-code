@@ -1,16 +1,26 @@
 import React from 'react';
 import styles from './PendingTest.module.scss';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchQuizz } from '../../../../store/actions/testActions';
+
 
 const PendingTest = props => {
+
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.PendingTest}>
       <div className={styles.TestTitle}>
         <p>{props.test.title}</p>
       </div>
-      <button className={styles.Go}>
+      {console.log(props.test.id)}
+      <Link to={'/user/quizz'}><button 
+        className={styles.Go}
+        onClick={() => dispatch(fetchQuizz(props.test.id))}
+      >
         GO!
-      </button>
+      </button></Link>
     </div>
   );
 };
