@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import './styles/App.scss';
@@ -40,4 +40,4 @@ const App = props => {
   );
 }
 
-export default App;
+export default withRouter(App);

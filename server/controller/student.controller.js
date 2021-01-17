@@ -32,7 +32,25 @@ const getStudent = async (req, res) => {
   }
 };
 
-// const deleteTest = async (req, res) => {
+const updateCompleteStudent = async (req, res) => {
+  console.log('st controller', req.body);
+  try {
+    const st = await student.findOne({_id: req.params.id});
+
+    st.completedtests.push(req.body);
+    const filteredPending = st.pendingtests.filter(t => t.id !== req.body.id); 
+    st.pendingtests = filteredPending;
+    
+    await st.save();
+    res.send(st);
+    res.status(200);
+  } catch (e) {
+    res.status(500);
+    res.send(e);
+  }
+};
+
+// const deleteStudent = async (req, res) => {
 //   try {
 //     const { id } = req.params;
 //     await student.deleteOne({_id: id});
@@ -44,17 +62,4 @@ const getStudent = async (req, res) => {
 //   }
 // };
 
-const updateStudent = async (req, res) => {
-  try {
-    const { id } = req.params;
-    await student.updateOne({_id: id}, req.body);
-    const result = await student.findOne({_id: id});
-    res.send(result);
-    res.status(200);
-  } catch (e) {
-    res.status(500);
-    res.send(e);
-  }
-};
-
-module.exports = { postStudent, getStudents, getStudent, updateStudent };
+module.exports = { postStudent, getStudents, getStudent, updateCompleteStudent };

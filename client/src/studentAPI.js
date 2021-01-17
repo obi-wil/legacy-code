@@ -24,12 +24,13 @@ export function getStudent (id) {
   })
 }
 
-// export function updateStudent (id, dir) {
-
-//   return fetchStudents(`${baseUrl}/${id}/${dir}`, {
-//     method: 'PUT'
-//   })
-// }
+export function updateStudentResults (ssid, status, testResults) {
+  return fetchStudents(`${baseUrl}/${status}/${ssid}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(testResults)
+  })
+}
 
 
 function fetchStudents (url, options) {

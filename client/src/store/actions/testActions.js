@@ -28,7 +28,7 @@ export const deleteTest = id => {
 export const fetchQuizz = (id) => {
   return dispatch => {
     testAPI
-      .getQuizz('6000a17770723cc5f2280620')
+      .getQuizz(id)
       .then(data => dispatch({ type: actionTypes.GET_CURRENTQUIZZ, payload: data }));
   };
 };

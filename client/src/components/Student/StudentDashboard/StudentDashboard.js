@@ -8,6 +8,7 @@ import StudentTestList from './StudentTestList/StudentTestList';
 
 const StudentDashboard = () => {
   const student = useSelector(state => state.currentStudent);
+  const progress = useSelector(state => state.progress);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const StudentDashboard = () => {
           <StudentTestList student={student} listType={'completetedtests'}/>
         </div>
       </div>
+      {console.log(progress, 'preo')}
     </React.Fragment>
     );
 };

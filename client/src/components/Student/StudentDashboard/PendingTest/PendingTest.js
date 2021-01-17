@@ -14,7 +14,6 @@ const PendingTest = props => {
       <div className={styles.TestTitle}>
         <p>{props.test.title}</p>
       </div>
-      {console.log(props.test.id)}
       <Link to={'/user/quizz'}><button 
         className={styles.Go}
         onClick={() => dispatch(fetchQuizz(props.test.id))}

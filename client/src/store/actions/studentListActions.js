@@ -10,9 +10,20 @@ export const fetchStudents = () => {
 
 export const fetchStudent = () => {
   return dispatch => {
-    studentAPI.getStudent('6002105982bc5ff80956aeba')
+    studentAPI.getStudent('6003fca0f9cb431df4182470')
       .then(data => dispatch({type: actionTypes.GET_STUDENT, payload: data}));
   };
+};
+
+export const updateStudentResults = (ssid, status, testResults) => {
+  return dispatch => {
+    studentAPI.updateStudentResults(ssid, status, testResults)
+      .then(data => {
+        console.log(data)
+        dispatch({type: actionTypes.GET_STUDENT, payload: data});
+        dispatch({type: actionTypes.RESET_PROGRESS});
+      });
+  }
 };
 
 

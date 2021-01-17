@@ -70,6 +70,8 @@ const progress = (state = initialProgress, action) => {
         correct: action.payload.data
       };
       return [...state, result];
+    case actionTypes.RESET_PROGRESS:
+      return [];
     default:
       return state;
   };

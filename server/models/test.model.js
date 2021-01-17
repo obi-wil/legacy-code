@@ -11,7 +11,7 @@ const TestSchema = mongoose.Schema({
   }],
   assignedto: {type: [String], required: true, default: []},
   finishedby: {type: [String], required: true, default: []},
-  testtype: {type: String, default: "syllable quiz", required: true}
+  testtype: {type: String, default: "Syllable quiz", required: true}
 });
 
 const test = db.conn.model('test', TestSchema);

@@ -1,16 +1,20 @@
 import React, { useState, /* useEffect */ } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Answer from '../Answer/Answer';
 import styles from './Question.module.scss';
 import { checkUserAnswer } from '../../../../store/actions/testActions';
+import { updateStudentResults } from '../../../../store/actions/studentListActions';
 
 const Question = props => {
 
   const [userIsAnswering, setuserIsAnswering] = useState(true);
+  const [showExit, setShowExit] = useState(false);
 
   const dispatch = useDispatch();
   const progress = useSelector(state => state.progress);
+  const student = useSelector(state => state.currentStudent);
 
   // useEffect(() => {}, [props.currQuest]);
 
@@ -32,12 +36,11 @@ const Question = props => {
     feedbackStyle = progress[props.currQuest].correct ? 'correct' : 'incorrect';
   }
 
+  // Next Button
   const nextButtonHandler = () => {
     if (props.currQuest === props.quizz.questions.length - 1) {
       setuserIsAnswering(true) // HERE
-      props.nextButton(true); // maybe tomeouthere
 
-      // Create results object with progress -> update student (pending and completed)
       const correct = progress.filter(question => question.correct).length;
       const completedTest = {
         id: props.quizz._id,
@@ -47,12 +50,12 @@ const Question = props => {
           questions: progress
         }
       };
-      
-      console.log(completedTest)
 
-      // Empty progress
-      // Go to results page
+      dispatch(updateStudentResults(student._id, 'completed', completedTest));
+      props.nextButton(completedTest); // maybe tomeouthere
+      // props.history.replace('/user'); why are you not workingggg?
     } else {
+      // if (props.currQuest === props.quizz.questions.length - 2) setShowExit(true);
       setuserIsAnswering(true) // HERE
       props.nextButton(false);
     }
@@ -76,12 +79,24 @@ const Question = props => {
           ))
         }
       </div>
-      <div className={styles.NextButtonContainer}>
-        <button 
-          className={styles.NextButton} onClick={nextButtonHandler} 
-          disabled={userIsAnswering}
-        ><i className="fas fa-arrow-right"></i></button>
-      </div>
+      {
+        showExit ? 
+        (<Link to={'/user'}>
+          <div className={styles.NextButtonContainer}>
+            <button 
+              className={styles.NextButton} onClick={nextButtonHandler} 
+              disabled={userIsAnswering}
+            ><i className="fas fa-arrow-right"></i></button>
+          </div>
+        </Link>) : 
+        (<div className={styles.NextButtonContainer}>
+          <button 
+            className={styles.NextButton} onClick={nextButtonHandler} 
+            disabled={userIsAnswering}
+          ><i className="fas fa-arrow-right"></i></button>
+        </div>)
+      }
+      
     </div>
   );
 };
