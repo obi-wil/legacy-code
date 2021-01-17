@@ -13,3 +13,6 @@ export const DELETE_STUDENT = 'DELETE_STUDENT';
 export const GET_CURRENTQUIZZ = 'GET_CURRENTQUIZZ';
 export const POST_CHECK_ANSWER = 'POST_CHECK_ANSWER';
 export const RESET_PROGRESS = 'RESET_PROGRESS';
+
+// Authentication (fake)
+export const AUTHENTIFY = 'AUTHENTIFY';

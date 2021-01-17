@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Feedback from './Feedback/Feedback';
 import Question from './Question/Question';
 import styles from './TestDashboard.module.scss';

@@ -23,7 +23,7 @@ const Feedback = props => {
 
   return (
     <div className={styles.Feedback}>
-      {/* <Link to='/user'> */}<div className={styles.Close} onClick={closeHandler}><i className="far fa-times-circle"></i></div>{/* </Link> */}
+      <div className={styles.Close} onClick={closeHandler}><i className="far fa-times-circle"></i></div>
       <div className={styles.Message}>
         {sentence}
       </div>

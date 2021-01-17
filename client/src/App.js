@@ -9,33 +9,66 @@ import TestCreator from './components/Teacher/TestCreator/TestCreator';
 import StudentList from './components/Teacher/Students/StudentList/StudentList';
 import StudentDashboard from './components/Student/StudentDashboard/StudentDashboard';
 import TestDashboard from './components/Student/TestDashboard/TestDashboard';
+import LoginPage from './components/Authentication/LoginPage/LoginPage';
 
 const App = props => {
 
   const role = useSelector(state => state.role);
 
-  const teacherRoutes = (
-    <Switch>  
-      <Route path="/tests" exact component={TestList} /> 
-      <Route path="/testcreator" exact component={TestCreator} /> 
-      <Route path="/students" exact component={StudentList} />
-      <Redirect to="/tests" />
-    </Switch>
-  );
+  let routes;
+  if (role === 'teacher') {
+    routes = (
+      <Layout role={role}>
+        <Switch>  
+          <Route path="/tests" exact component={TestList} /> 
+          <Route path="/testcreator" exact component={TestCreator} /> 
+          <Route path="/students" exact component={StudentList} />
+          <Redirect to="/tests" />
+        </Switch>
+      </Layout>
+    );
+  } else if (role === 'student') {
+    routes = (
+      <Layout role={role}>
+        <Switch>  
+          <Route path="/user" exact component={StudentDashboard} /> 
+          <Route path="/user/quizz" exact component={TestDashboard} /> 
+          <Redirect to="/user" />
+        </Switch>
+      </Layout>
+    );
+  } else {
+    routes = (
+        <Switch> 
+          <Route path="/login" exact component={LoginPage} /> 
+          <Redirect to="/login" />
+        </Switch>
+    )
+  }
 
-  const studentRoutes = (
-    <Switch>  
-      <Route path="/user" exact component={StudentDashboard} /> 
-      <Route path="/user/quizz" exact component={TestDashboard} /> 
-      <Redirect to="/user" />
-    </Switch>
-  );
+  // const teacherRoutes = (
+  //   <Switch>  
+  //     <Route path="/tests" exact component={TestList} /> 
+  //     <Route path="/testcreator" exact component={TestCreator} /> 
+  //     <Route path="/students" exact component={StudentList} />
+  //     <Redirect to="/tests" />
+  //   </Switch>
+  // );
+
+  // const studentRoutes = (
+  //   <Switch>  
+  //     <Route path="/user" exact component={StudentDashboard} /> 
+  //     <Route path="/user/quizz" exact component={TestDashboard} /> 
+  //     <Redirect to="/user" />
+  //   </Switch>
+  // );
 
   return (
     <div className="App">
-      <Layout role={role}>
-        {role === 'teacher' ? teacherRoutes : studentRoutes}
-      </Layout>
+      {routes}
+
+      {/* <Layout role={role}>
+      </Layout> */}
     </div>
   );
 }

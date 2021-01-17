@@ -8,16 +8,12 @@ import StudentTestList from './StudentTestList/StudentTestList';
 
 const StudentDashboard = () => {
   const student = useSelector(state => state.currentStudent);
-  const progress = useSelector(state => state.progress);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchStudent());
   }, [dispatch]);
 
-  // This will update currentQuizz state
-  
-  
   return (
     <React.Fragment>
       <div className={styles.StudentDashboard}>
@@ -31,7 +27,6 @@ const StudentDashboard = () => {
           <StudentTestList student={student} listType={'completetedtests'}/>
         </div>
       </div>
-      {console.log(progress, 'preo')}
     </React.Fragment>
     );
 };

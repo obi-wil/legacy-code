@@ -16,10 +16,13 @@ const tests = (state = initialTests, action) => {
   };
 };
 
-const initialRole = 'student';
+const initialRole = 'teacher';
 
 const role = (state = initialRole, action) => {
   switch (action.type) {
+    case actionTypes.AUTHENTIFY:
+      console.log(action.payload.role)
+      return action.payload.role;
     default:
       return state;
   };
