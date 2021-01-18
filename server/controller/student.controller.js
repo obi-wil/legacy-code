@@ -62,30 +62,17 @@ const updateCompleteStudent = async (req, res) => {
 
 const updatePendingTests = async (req, res) => {
   try {
-    const ids = req.body.map((ss) => ss._id);
-    const pendingTests = req.body.map((ss) => ss.pendingtests);
-    console.log(pendingTests, 'pendingTests')
-    for (let i = 0; i < ids.length; i++) {
-      const st = await student.find({_id: ids[i]});
-      console.log(st, 'student', 'pending tests', pendingTests[i])
-      st.pendingtests = pendingTests[i];
-      // st.pendingtests.push(pendingTests[i]);
-      console.log(st, 'student after')
-      await st.save();
-    }
-    
-    // WHY are you not working **SAAAD**
-    // const students = await student.find({_id: {$in: ids}});
-    // for (let i in students.length) {
-      //   students[i].pendingtests.push(pendingTests[i]);
-      //   await student[i].save(); // HOW DO I SAVE THIS?
-      // }
-      
+    const { ssids } = req.body;
+    const { test } = req.body;
+    await student.updateMany(
+      {_id: {$in: ssids}}, 
+      {$push: { pendingtests: test}}
+    );
     const students = await student.find();
-    console.log(students, 'WHERE ARE YOUUUU')
     res.send(students);
     res.status(200);
   } catch (e) {
+    console.log(e)
     res.status(500);
     res.send(e.message);
   }

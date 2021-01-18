@@ -7,7 +7,6 @@ const Layout = props => {
   return (
     <div className={styles.Layout}>
       <NavBar role={props.role}/>
-      {console.log('reloading layout')}
       <div className={styles[props.role]}>{props.children}</div>
     </div>
   )

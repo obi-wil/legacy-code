@@ -19,7 +19,6 @@ export const updateStudentResults = (ssid, status, testResults) => {
   return dispatch => {
     studentAPI.updateStudentTests(ssid, status, testResults)
       .then(data => {
-        console.log(data)
         dispatch({type: actionTypes.GET_STUDENT, payload: data});
         dispatch({type: actionTypes.RESET_PROGRESS});
       });

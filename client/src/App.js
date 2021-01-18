@@ -10,6 +10,7 @@ import StudentList from './components/Teacher/Students/StudentList/StudentList';
 import StudentDashboard from './components/Student/StudentDashboard/StudentDashboard';
 import TestDashboard from './components/Student/TestDashboard/TestDashboard';
 import LoginPage from './components/Authentication/LoginPage/LoginPage';
+import ImageUpload from './components/Teacher/TestCreator/ImageUpload/ImageUpload';
 
 const App = props => {
 
@@ -46,26 +47,10 @@ const App = props => {
     )
   }
 
-  // const teacherRoutes = (
-  //   <Switch>  
-  //     <Route path="/tests" exact component={TestList} /> 
-  //     <Route path="/testcreator" exact component={TestCreator} /> 
-  //     <Route path="/students" exact component={StudentList} />
-  //     <Redirect to="/tests" />
-  //   </Switch>
-  // );
-
-  // const studentRoutes = (
-  //   <Switch>  
-  //     <Route path="/user" exact component={StudentDashboard} /> 
-  //     <Route path="/user/quizz" exact component={TestDashboard} /> 
-  //     <Redirect to="/user" />
-  //   </Switch>
-  // );
-
   return (
     <div className="App">
-      {routes}
+      {/* {routes} */}
+      <ImageUpload/>
 
       {/* <Layout role={role}>
       </Layout> */}

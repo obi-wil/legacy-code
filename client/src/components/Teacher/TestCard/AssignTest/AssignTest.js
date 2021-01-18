@@ -21,22 +21,22 @@ const AssignTest = props => {
 
   const assignTestsHandler = (selection) => {
 
-    const updatedSS = selection.map(ss => {
-      ss.pendingtests.push({id: props.test._id, title: props.test.title})
-      return ss;
-    });
+    const testObject = {id: props.test._id, title: props.test.title};
+    const studentsToUpdate = selection.map(ss => ss._id);
 
-    dispatch(updateStudentsPendingTests(props.test._id, 'pending', updatedSS));
+    dispatch(updateStudentsPendingTests(props.test._id, 'pending', {
+      test: testObject,
+      ssids: studentsToUpdate
+    }));
     setTimeout(() => {
       setSelectedSS([]);
       props.close();
-    }, 1000);
+    }, 500);
   }
 
   return (
     <div className={styles.AssignTest}>
       <div className={styles.Students}>
-        {console.log(props.students)}
         {props.students.map((st, i) => {
           if (!st.pendingtests.some(t => t.id === props.test._id)) { // here
             return (
