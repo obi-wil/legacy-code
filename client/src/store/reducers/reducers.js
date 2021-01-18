@@ -21,7 +21,6 @@ const initialRole = 'teacher';
 const role = (state = initialRole, action) => {
   switch (action.type) {
     case actionTypes.AUTHENTIFY:
-      console.log(action.payload.role)
       return action.payload.role;
     default:
       return state;
@@ -39,6 +38,14 @@ const students = (state = initialStudentList, action) => {
         else return 0;
       });
       return students;
+    case actionTypes.POST_STUDENTS:
+      const allStudents = [...state, ...action.payload]
+        .sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          else return 0;
+        });
+      return allStudents;
     default:
       return state;
   };

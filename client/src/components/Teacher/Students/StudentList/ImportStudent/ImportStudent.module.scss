@@ -1,0 +1,43 @@
+@import '../../../../../styles/App.scss';
+
+.ImportStudent {
+
+  .DropDiv {
+    border: 1px solid red;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    background-color: $color-bg;
+    color: #555;
+  }
+  
+  .Highlighted {
+    border: 1px solid $color-green;
+    background-color: $color-light;
+  }
+  
+  .NotHighlighted {
+    border: 1px solid grey;
+
+  }
+
+  .DropList {
+    max-height: 50vh;
+    min-height: 25vh;
+    overflow-y: scroll;
+  }
+
+  .Buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+
+  
+}

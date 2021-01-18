@@ -21,6 +21,17 @@ const postStudent = async (req, res) => {
   }
 };
 
+const postStudents = async (req, res) => {
+  try {
+    const result = await student.insertMany(req.body);
+    res.status(201);
+    res.send(result);
+  } catch (e) {
+    res.status(500);
+    res.send(e);
+  }
+};
+
 const getStudent = async (req, res) => {
   try {
     const { id } = req.params;
@@ -53,9 +64,13 @@ const updatePendingTests = async (req, res) => {
   try {
     const ids = req.body.map((ss) => ss._id);
     const pendingTests = req.body.map((ss) => ss.pendingtests);
+    console.log(pendingTests, 'pendingTests')
     for (let i = 0; i < ids.length; i++) {
-      const st = await student.findOne({_id: ids[i]});
-      st.pendingtests = pendingTests[i]; 
+      const st = await student.find({_id: ids[i]});
+      console.log(st, 'student', 'pending tests', pendingTests[i])
+      st.pendingtests = pendingTests[i];
+      // st.pendingtests.push(pendingTests[i]);
+      console.log(st, 'student after')
       await st.save();
     }
     
@@ -66,9 +81,8 @@ const updatePendingTests = async (req, res) => {
       //   await student[i].save(); // HOW DO I SAVE THIS?
       // }
       
-      
-      
-    const students = await student.find({});
+    const students = await student.find();
+    console.log(students, 'WHERE ARE YOUUUU')
     res.send(students);
     res.status(200);
   } catch (e) {
@@ -77,16 +91,15 @@ const updatePendingTests = async (req, res) => {
   }
 };
 
-// const deleteStudent = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     await student.deleteOne({_id: id});
-//     res.status(204);
-//     res.send('ok');
-//   } catch (e) {
-//     res.status(500);
-//     res.send(e);
-//   }
-// };
+const deleteAllStudents = async (req, res) => {
+  try {
+    await student.deleteMany({});
+    res.status(204);
+    res.send('ok');
+  } catch (e) {
+    res.status(500);
+    res.send(e);
+  }
+};
 
-module.exports = { postStudent, getStudents, getStudent, updateCompleteStudent, updatePendingTests };
+module.exports = { postStudent, postStudents, getStudents, getStudent, updateCompleteStudent, updatePendingTests, deleteAllStudents };

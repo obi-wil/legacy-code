@@ -22,7 +22,7 @@ const AssignTest = props => {
   const assignTestsHandler = (selection) => {
 
     const updatedSS = selection.map(ss => {
-      ss.pendingtests.push(props.test._id)
+      ss.pendingtests.push({id: props.test._id, title: props.test.title})
       return ss;
     });
 
@@ -36,8 +36,9 @@ const AssignTest = props => {
   return (
     <div className={styles.AssignTest}>
       <div className={styles.Students}>
+        {console.log(props.students)}
         {props.students.map((st, i) => {
-          if (!st.pendingtests.includes(props.test._id)) {
+          if (!st.pendingtests.some(t => t.id === props.test._id)) { // here
             return (
               <SelectStudent
                 student={st}

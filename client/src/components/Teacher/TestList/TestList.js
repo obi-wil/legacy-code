@@ -13,13 +13,6 @@ const TestList = () => {
   const tests = useSelector(state => state.tests);
   const dispatch = useDispatch();
 
-  // const initFetch = useCallback(() => dispatch(fetchTests()), [dispatch]);
-
-  // useEffect(() => {
-  //   console.log('useEffect with usecallback is running')
-  //   initFetch();
-  // }, [initFetch]);
-
   useEffect(() => {
     dispatch(fetchTests());
     dispatch(fetchStudents());
@@ -29,6 +22,7 @@ const TestList = () => {
 
   return (
     <div className={styles.TestList}>
+      <Link to="/testcreator"><CreateButton>Create new test</CreateButton></Link>
       <div className={styles.TestListContainer}>
         {tests.length ? tests.map((test) => (
           <TestCard 
@@ -37,8 +31,6 @@ const TestList = () => {
             deleteTestHandler={deleteTestHandler}/>
         )) : 'Fetching tests!'}
       </div>
-      <Link to="/testcreator"><CreateButton>Create new test</CreateButton></Link>
-      
     </div>
   );
 };

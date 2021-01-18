@@ -4,8 +4,8 @@ const db = require('../db');
 
 const TestSchema = mongoose.Schema({
   name: {type: String, required: true},
-  pendingtests: [String],
-  completedtests: [{
+  pendingtests: {type: [], required: true, default: []},
+  completedtests: {type: [{
     id: String,
     title: String,
     result: {
@@ -17,7 +17,8 @@ const TestSchema = mongoose.Schema({
         correct: Boolean
       }]
     }
-  }]
+  }], default: []},
+  classes: {type: [String], required: true, default: []}
 });
 
 const student = db.conn.model('student', TestSchema);

@@ -10,6 +10,14 @@ export function getStudent (id) {
   });
 };
 
+export function importStudents (newSs) {
+  return fetchStudents(`${baseUrl}/multiple`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(newSs)
+  });
+};
+
 /* StudentID, 'completed', Test results
 TestID, 'pending', Students Pending */
 export function updateStudentTests (id, status, updatedData) {

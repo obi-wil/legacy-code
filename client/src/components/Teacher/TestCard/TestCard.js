@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import AssignTest from './AssignTest/AssignTest';
 import AssignTestCard from './AssignTestCard/AssignTestCard';
@@ -33,7 +33,7 @@ const TestCard = props => {
         <div className={styles.AssignTest}>
           {students ? 
           students.map((st, i) => {
-            if (st.pendingtests.includes(props.test._id)) {
+            if (st.pendingtests.some(t => t.id === props.test._id)) { //here
               return (
                 <div className={styles.StName} key={i}>
                   <i className="fas fa-user-alt"/>{st.name}
