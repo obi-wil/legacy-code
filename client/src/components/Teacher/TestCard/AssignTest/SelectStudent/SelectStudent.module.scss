@@ -1,0 +1,22 @@
+@import '../../../../../styles/App.scss';
+
+
+.Unselected {
+  padding: 0.5rem 1rem;
+  border-radius: $br-s;
+  margin: 1px 0;
+}
+
+.Unselected:hover {
+  background-color: lighten($color-dark, 15%);
+  color: $color-bg2;
+  cursor: pointer;
+}
+
+.Selected {
+  padding: 0.5rem 1rem;
+  background-color: $color-dark;
+  color: $color-bg2;
+  border-radius: $br-s;
+  margin: 1px 0;
+}

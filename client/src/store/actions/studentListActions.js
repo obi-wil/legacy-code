@@ -17,11 +17,21 @@ export const fetchStudent = () => {
 
 export const updateStudentResults = (ssid, status, testResults) => {
   return dispatch => {
-    studentAPI.updateStudentResults(ssid, status, testResults)
+    studentAPI.updateStudentTests(ssid, status, testResults)
       .then(data => {
         console.log(data)
         dispatch({type: actionTypes.GET_STUDENT, payload: data});
         dispatch({type: actionTypes.RESET_PROGRESS});
+      });
+  }
+};
+
+export const updateStudentsPendingTests = (testid, status, studentsList) => {
+  return dispatch => {
+    studentAPI.updateStudentTests(testid, status, studentsList)
+      .then(data => {
+        console.log(data)
+        dispatch({type: actionTypes.GET_STUDENTS, payload: data});
       });
   }
 };

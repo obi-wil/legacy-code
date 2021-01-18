@@ -9,15 +9,15 @@ const StudentList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchStudents());
-  }, [dispatch]);
+    if (!students.length) dispatch(fetchStudents());
+  }, [students, dispatch]);
 
   return (
     <div className={styles.StudentList}>
       {students.length
         ? students.map((ss, i) => (
             <p test={ss} key={i}>
-              {ss.name}, completed tests: {ss.completedtests.length}
+              {ss.name}, completed tests: {ss.pendingtests.length}
             </p>
           ))
         : 'Fetching students!'}

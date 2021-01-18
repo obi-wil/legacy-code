@@ -6,14 +6,10 @@ import styles from './NavBar.module.scss';
 
 const NavBar = props => {
 
-  // const MyPromise = require('some-promise-lib');
-  // const confetti = require('canvas-confetti');
-  // confetti.Promise = MyPromise;
-
   return (
     <div className={styles.TopBar}>
       <div className={styles[props.role]}>
-        <p>Learning</p>
+        <p>Logo</p>
         <nav>
           <NavItems/>
         </nav>

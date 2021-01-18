@@ -24,11 +24,13 @@ export function getStudent (id) {
   })
 }
 
-export function updateStudentResults (ssid, status, testResults) {
-  return fetchStudents(`${baseUrl}/${status}/${ssid}`, {
+/* StudentID, 'completed', Test results
+TestID, 'pending', Students Pending */
+export function updateStudentTests (id, status, updatedData) {
+  return fetchStudents(`${baseUrl}/${status}/${id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(testResults)
+    body: JSON.stringify(updatedData)
   })
 }
 

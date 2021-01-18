@@ -4,10 +4,7 @@ const db = require('../db');
 
 const TestSchema = mongoose.Schema({
   name: {type: String, required: true},
-  pendingtests: [{
-    id: String,
-    title: String
-  }],
+  pendingtests: [String],
   completedtests: [{
     id: String,
     title: String,

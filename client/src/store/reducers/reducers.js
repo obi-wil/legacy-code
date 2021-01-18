@@ -33,7 +33,12 @@ const initialStudentList = [];
 const students = (state = initialStudentList, action) => {
   switch (action.type) {
     case actionTypes.GET_STUDENTS:
-      return action.payload;
+      const students = action.payload.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        else return 0;
+      });
+      return students;
     default:
       return state;
   };

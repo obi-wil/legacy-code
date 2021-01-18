@@ -1,12 +1,12 @@
 @import '../../../styles/App.scss';
 
 .TestCard {
-  background-color: $color-bg2;
+  background-color: lighten($color-medium, 30%);
   // border-radius: 10px;
   width:100%;
-  margin: 10px 0;
-  padding: 1.5rem 1.5rem;
-  box-shadow: 1px 1px 7px 1px #ccc;
+  margin: 15px 0 0;
+  padding: 1rem 1.5rem;
+  box-shadow: 3px 3px 7px 1px #ccc;
   display: flex;
 
   .TestInfo {
@@ -16,7 +16,12 @@
   .TestActions {
     flex: 1;
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
+    i:hover {
+      cursor: pointer;
+      // color: darken($color-green, 20%);
+      color: lighten($color-dark, 10%);
+    }
   }
 
   .Bin {
@@ -28,4 +33,19 @@
     }
   }
 
+}
+
+.ExtraInfo {
+  background-color: $color-bg2;
+  // border-radius: 10px;
+  width:100%;
+  margin: 0;
+  padding: 1.5rem 1.5rem;
+  box-shadow: 3px 3px 7px 1px #ccc;
+  display: flex;
+
+  .AssignTest {
+    border: 1px solid blue;
+  }
+  
 }

@@ -33,7 +33,6 @@ const getStudent = async (req, res) => {
 };
 
 const updateCompleteStudent = async (req, res) => {
-  console.log('st controller', req.body);
   try {
     const st = await student.findOne({_id: req.params.id});
 
@@ -50,6 +49,34 @@ const updateCompleteStudent = async (req, res) => {
   }
 };
 
+const updatePendingTests = async (req, res) => {
+  try {
+    const ids = req.body.map((ss) => ss._id);
+    const pendingTests = req.body.map((ss) => ss.pendingtests);
+    for (let i = 0; i < ids.length; i++) {
+      const st = await student.findOne({_id: ids[i]});
+      st.pendingtests = pendingTests[i]; 
+      await st.save();
+    }
+    
+    // WHY are you not working **SAAAD**
+    // const students = await student.find({_id: {$in: ids}});
+    // for (let i in students.length) {
+      //   students[i].pendingtests.push(pendingTests[i]);
+      //   await student[i].save(); // HOW DO I SAVE THIS?
+      // }
+      
+      
+      
+    const students = await student.find({});
+    res.send(students);
+    res.status(200);
+  } catch (e) {
+    res.status(500);
+    res.send(e.message);
+  }
+};
+
 // const deleteStudent = async (req, res) => {
 //   try {
 //     const { id } = req.params;
@@ -62,4 +89,4 @@ const updateCompleteStudent = async (req, res) => {
 //   }
 // };
 
-module.exports = { postStudent, getStudents, getStudent, updateCompleteStudent };
+module.exports = { postStudent, getStudents, getStudent, updateCompleteStudent, updatePendingTests };

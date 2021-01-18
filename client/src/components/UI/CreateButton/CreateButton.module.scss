@@ -13,4 +13,5 @@
 
 .Button:hover {
   cursor: pointer;
+  background-color: lighten($color-dark, 20%)
 }
