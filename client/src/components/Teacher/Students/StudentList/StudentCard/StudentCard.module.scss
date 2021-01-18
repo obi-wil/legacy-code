@@ -1,0 +1,38 @@
+@import '../../../../../styles/App.scss';
+
+.StudentCard {
+  border: 1px solid #ddd;
+  // background-color: $color-dark;
+  padding: 0.6rem 2rem; 
+  margin: 3px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .StudentName {
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .StudentActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+
+    i {
+      font-size: 1.2rem;
+      margin: 0 50px 0 10px;
+    }
+
+    .Tick {
+      font-size: 0.8rem;
+      color: darken($color-green, 10%);
+    }
+
+    i:hover {
+      cursor: pointer;
+      color: lighten($color-dark, 10%);
+    }
+  }
+}

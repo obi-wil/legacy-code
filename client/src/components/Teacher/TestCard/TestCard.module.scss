@@ -17,6 +17,11 @@
     flex: 1;
     display:flex;
     justify-content: space-around;
+
+    i {
+      font-size: 1.2rem;
+      margin: 0 20px;
+    }
     i:hover {
       cursor: pointer;
       // color: darken($color-green, 20%);
@@ -42,10 +47,21 @@
   margin: 0;
   padding: 1.5rem 1.5rem;
   box-shadow: 3px 3px 7px 1px #ccc;
-  display: flex;
+  // display: flex;
 
   .AssignTest {
-    border: 1px solid blue;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    .StName {
+      width: 33%;
+      padding: 0.4rem 0.6rem;
+      
+      i {
+        margin-right: 10px;
+      }
+    }
   }
   
 }

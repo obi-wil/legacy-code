@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchStudents } from '../../../../store/actions/studentListActions';
+import StudentCard from './StudentCard/StudentCard';
 
 import styles from './StudentList.module.scss';
 
@@ -16,9 +17,10 @@ const StudentList = () => {
     <div className={styles.StudentList}>
       {students.length
         ? students.map((ss, i) => (
-            <p test={ss} key={i}>
-              {ss.name}, completed tests: {ss.pendingtests.length}
-            </p>
+            <StudentCard 
+              student={ss}
+              key={i}
+            />
           ))
         : 'Fetching students!'}
     </div>

@@ -52,7 +52,7 @@ const AssignTest = props => {
         {selectedSS.length ? selectedSS.map(st => st.name).join(', ') : null}
       </div> */}
       <div className={styles.Assign} onClick={() => assignTestsHandler(selectedSS)}>
-        Send test <i className="far fa-paper-plane"></i> 
+        Send test <i className="far fa-paper-plane"/>
       </div>
     </div>
   );

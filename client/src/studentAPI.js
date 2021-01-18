@@ -4,25 +4,11 @@ export function getStudents () {
   return fetchStudents(baseUrl);
 };
 
-// export function postStudent (student) {
-//   return fetchStudents(baseUrl, {
-//     method: 'POST',
-//     headers: {'Content-Type': 'application/json'},
-//     body: JSON.stringify(student)
-//   });
-// };
-
-// export function deleteStudent (id) {
-//   return fetchStudents(`${baseUrl}/${id}`, {
-//     method: 'DELETE'
-//   });
-// };
-
 export function getStudent (id) {
   return fetchStudents(`${baseUrl}/${id}`, {
     method: 'GET'
-  })
-}
+  });
+};
 
 /* StudentID, 'completed', Test results
 TestID, 'pending', Students Pending */
@@ -31,9 +17,8 @@ export function updateStudentTests (id, status, updatedData) {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(updatedData)
-  })
-}
-
+  });
+};
 
 function fetchStudents (url, options) {
   return fetch(url, options)

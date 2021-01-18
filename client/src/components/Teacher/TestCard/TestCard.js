@@ -18,7 +18,8 @@ const TestCard = props => {
           {props.test.title}
         </div>
         <div className={styles.TestActions}>
-          <i className="fas fa-book-reader"
+        <i className="fas fa-edit"></i>
+        <i className="far fa-paper-plane"
             onClick={() => setAssignTest(true)}/>
           <i 
           className={`far fa-trash-alt ${styles.Bin}`}
@@ -27,12 +28,16 @@ const TestCard = props => {
 
       </div>
       <div className={styles.ExtraInfo}>
-        <div className={styles.AssignTest}>
 
-          Sent to: {students ? 
+        <p>Sent to:</p>
+        <div className={styles.AssignTest}>
+          {students ? 
           students.map((st, i) => {
             if (st.pendingtests.includes(props.test._id)) {
-              return (<div key={i}>{st.name}</div>)
+              return (
+                <div className={styles.StName} key={i}>
+                  <i className="fas fa-user-alt"/>{st.name}
+                </div>)
             } else return null
           })
           : null}
