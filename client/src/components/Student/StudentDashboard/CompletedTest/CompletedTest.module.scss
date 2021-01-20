@@ -13,7 +13,14 @@
     font-size: 1.8rem;
     margin: 0;
     display: flex;
-    width: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    i {
+      color: darken($color-green, 10%);
+      font-size: 2rem;
+    }
   }
 
 }

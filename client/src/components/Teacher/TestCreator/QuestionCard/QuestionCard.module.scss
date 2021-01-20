@@ -8,6 +8,9 @@
   padding: 1.5rem 0.5rem;
   box-shadow: 1px 1px 7px 1px #ccc;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .Bin {
     color: $color-darkest;
@@ -18,7 +21,13 @@
 
   .QuestionTitle {
     text-align: center;
-    padding: 0.3rem 0.5rem 1.3rem;
+    padding: 0.3rem 0.5rem 0.5rem;
+  }
+
+  .Image {
+    height: 90px;
+    display: flex;
+    justify-content: center;
   }
 
   .Answers {
@@ -26,6 +35,7 @@
     flex-wrap: wrap;
     align-items: space-evenly;
     justify-content: space-evenly;
+    margin-top: 0.3rem;
 
     div {
       width: 40%;

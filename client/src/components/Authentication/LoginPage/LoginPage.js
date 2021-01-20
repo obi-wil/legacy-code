@@ -7,7 +7,6 @@ import styles from './LoginPage.module.scss';
 const LoginPage = props => {
 
   const role = useSelector(state => state.role);
-  console.log(role)
   const dispatch = useDispatch();
 
   const submitUserHandler = (e) => {

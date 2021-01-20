@@ -1,3 +1,5 @@
+@import '../../../../styles/App.scss';
+
 .QuestionCreator {
   margin-top: 50px;
 
@@ -15,6 +17,26 @@
     margin-bottom: 1.4rem;
   }
 
+  input[type=file]::-webkit-file-upload-button {
+    border: 2px solid #97b4dc;
+    padding: .2em .4em;
+    color: #000;
+    border-radius: .2em;
+    background-color: #97b4dc;
+    transition: 1s;
+    outline: none;
+  }
+
+  input[type=file]::file-selector-button {
+    border: 2px solid #97b4dc;
+    padding: .2em .4em;
+    color: #000;
+    border-radius: .2em;
+    background-color: #97b4dc;
+    transition: 1s;
+    outline: none;
+  }
+
   select {
     padding: 7px 15px;
     font-size: 16px;
@@ -23,6 +45,10 @@
     width: 50%;
     margin: 2rem auto;
   }
+
+  // .ImageInput {
+
+  // }
 
   .Button {
     margin: 20px auto;

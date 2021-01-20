@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(answersMiddleware);
 app.use('/test', testrouter);
 app.use('/student', studentrouter);
-app.use('/quizz', quizzrouter);
+app.use('/quiz', quizzrouter);
 
 
 const PORT = 3002;

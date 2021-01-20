@@ -1,7 +1,7 @@
 @import '../../../styles/App.scss';
 
 .TestCard {
-  background-color: lighten($color-medium, 30%);
+  background-color: lighten($color-dark, 50%);
   // border-radius: 10px;
   width:100%;
   margin: 15px 0 0;
@@ -45,9 +45,9 @@
   // border-radius: 10px;
   width:100%;
   margin: 0;
-  padding: 1.5rem 1.5rem;
+  padding: 0.3rem 1.5rem 1rem;
   box-shadow: 3px 3px 7px 1px #ccc;
-  // display: flex;
+  // display: none;
 
   .AssignTest {
     width: 100%;
@@ -56,7 +56,7 @@
     
     .StName {
       width: 33%;
-      padding: 0.4rem 0.6rem;
+      padding: 0.4rem 0.6rem 0.4rem 4rem;
       
       i {
         margin-right: 10px;

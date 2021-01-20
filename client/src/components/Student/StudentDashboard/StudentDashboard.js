@@ -11,7 +11,7 @@ const StudentDashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchStudent());
+    dispatch(fetchStudent('Sara Gómez'));
   }, [dispatch]);
 
   return (

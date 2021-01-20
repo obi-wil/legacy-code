@@ -8,9 +8,15 @@ export const fetchStudents = () => {
   };
 };
 
-export const fetchStudent = () => {
+// export const fetchStudent = () => {
+//   return dispatch => {
+//     studentAPI.getStudent('6005b2f93ead6669af3b1fe7')
+//       .then(data => dispatch({type: actionTypes.GET_STUDENT, payload: data}));
+//   };
+// };
+export const fetchStudent = (name) => {
   return dispatch => {
-    studentAPI.getStudent('60009f5970723cc5f228061a')
+    studentAPI.getStudent(name)
       .then(data => dispatch({type: actionTypes.GET_STUDENT, payload: data}));
   };
 };

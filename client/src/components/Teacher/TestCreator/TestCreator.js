@@ -27,7 +27,7 @@ const TestCreator = props => {
     }
   }, []);
 
-  const saveQuestionHandler = (q) => {
+  const saveQuestionHandler = q => {
     // Create question object
     const letters = ['a', 'b', 'c', 'd'];
     const options = letters.map((ch) => ({op: q[ch].value, correct: false}));
@@ -37,12 +37,32 @@ const TestCreator = props => {
       answer: q[q.answer.value].value
     };
     newQuestion.options.map(opt => opt.correct = (opt.op === newQuestion.answer));
-    // Update localstorage and state
-    setQuestions(currentQ => [...currentQ, newQuestion]);
-    const currenttest = JSON.parse(localStorage.getItem('currenttest'));
 
-    currenttest[newQuestion.question] = newQuestion
-    localStorage.setItem('currenttest', JSON.stringify(currenttest));
+    if (q.selectedImage.files[0]) {
+      // SHOW SPINNER
+      const data = new FormData();
+      data.append('file', q.selectedImage.files[0])
+      data.append('upload_preset', 'learntoday')
+      
+      fetch('https://api.cloudinary.com/v1_1/garmobal/image/upload', {
+        method: 'POST',
+        body: data})
+        .then(res => res.json())
+        .then(res => {
+          newQuestion.image = res.secure_url;
+          setQuestions(currentQ => [...currentQ, newQuestion]);
+          const currenttest = JSON.parse(localStorage.getItem('currenttest'));
+          currenttest[newQuestion.question] = newQuestion
+          localStorage.setItem('currenttest', JSON.stringify(currenttest));
+          //HIDE SPINNER
+        });
+    } else {
+      setQuestions(currentQ => [...currentQ, newQuestion]);
+      const currenttest = JSON.parse(localStorage.getItem('currenttest'));
+      currenttest[newQuestion.question] = newQuestion
+      localStorage.setItem('currenttest', JSON.stringify(currenttest));
+    }
+
   };
 
   const trashHandler = question => {

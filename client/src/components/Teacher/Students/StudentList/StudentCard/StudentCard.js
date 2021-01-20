@@ -18,12 +18,21 @@ const StudentCard = props => {
           <i className="fas fa-user-alt"/> {props.student.name}
         </div>
         <div className={styles.StudentActions}>
-          {props.student.completedtests.length}
-          <i className={`fas fa-check ${styles.Tick}`}></i> 
-          <i 
-            className="fas fa-chart-line"
-            onClick={showProgress}
-          ></i>
+          <div className={styles.StudentActionsItem}>
+            {props.student.completedtests.length}
+            <i className={`fas fa-check ${styles.Tick}`}></i> 
+          </div>
+          <div className={styles.StudentActionsItem}>
+            {props.student.pendingtests.length}
+            <i className={`fas fa-circle ${styles.Circle}`}></i> 
+          </div>
+          <div className={styles.StudentActionsItem}>
+            <i 
+              className={`fas fa-chart-line ${styles.Chart}`}
+              onClick={showProgress}
+            ></i>
+          </div>
+          
         </div>
       </div>
       <StudentProgressCard 

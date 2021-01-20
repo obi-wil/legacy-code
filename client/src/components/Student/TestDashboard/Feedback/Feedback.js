@@ -3,17 +3,58 @@ import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './Feedback.module.scss';
 import * as actionTypes from '../../../../store/actions/actionTypes';
+import * as confetti from 'canvas-confetti';
 
 const Feedback = props => {
 
   const student = useSelector(state => state.currentStudent);
 
-  let sentence = props.quizzResults.result.percentage > 70 ? 
+  let sentence = props.quizzResults.result.percentage > 60 ? 
     `Well done, ${student.name}!` :
     `Good luck next time, ${student.name}`;
 
   const dispatch = useDispatch();
   useEffect(() => {
+    setTimeout(() => {
+      confetti.create(undefined, { resize: true, useWorker: false })({
+        startVelocity: 80,
+        particleCount: 200,
+        gravity: 2,
+        ticks: 400,
+        zIndex: 200,
+        origin: {
+          x: 0.5,
+          y: 0.7,
+        },
+      });
+    }, 300);
+    setTimeout(() => {
+      confetti.create(undefined, { resize: true, useWorker: false })({
+        startVelocity: 80,
+        particleCount: 300,
+        gravity: 2,
+        ticks: 400,
+        zIndex: 200,
+        origin: {
+          x: 0.4,
+          y: 0.8,
+        },
+      });
+    }, 400);
+    setTimeout(() => {
+      confetti.create(undefined, { resize: true, useWorker: false })({
+        startVelocity: 80,
+        particleCount: 200,
+        gravity: 2,
+        ticks: 400,
+        zIndex: 200,
+        origin: {
+          x: 0.6,
+          y: 0.7,
+        },
+      });
+    }, 500);
+    
     return () => dispatch({type: actionTypes.RESET_PROGRESS})
   }, [dispatch])
   
@@ -38,7 +79,6 @@ const Feedback = props => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

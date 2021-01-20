@@ -32,13 +32,13 @@ export function deleteTest (id) {
 // }
 
 export function getQuizz (id) {
-  return fetchTests(`${baseUrl}/quizz/${id}`, {
+  return fetchTests(`${baseUrl}/quiz/${id}`, {
     method: 'GET'
   });
 };
 
 export function checkAnswer (answerObj) {
-  return fetchTests(`${baseUrl}/quizz`, {
+  return fetchTests(`${baseUrl}/quiz`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(answerObj)

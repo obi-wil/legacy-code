@@ -10,7 +10,6 @@ import StudentList from './components/Teacher/Students/StudentList/StudentList';
 import StudentDashboard from './components/Student/StudentDashboard/StudentDashboard';
 import TestDashboard from './components/Student/TestDashboard/TestDashboard';
 import LoginPage from './components/Authentication/LoginPage/LoginPage';
-import ImageUpload from './components/Teacher/TestCreator/ImageUpload/ImageUpload';
 
 const App = props => {
 
@@ -33,7 +32,7 @@ const App = props => {
       <Layout role={role}>
         <Switch>  
           <Route path="/user" exact component={StudentDashboard} /> 
-          <Route path="/user/quizz" exact component={TestDashboard} /> 
+          <Route path="/user/quiz" exact component={TestDashboard} /> 
           <Redirect to="/user" />
         </Switch>
       </Layout>
@@ -49,11 +48,7 @@ const App = props => {
 
   return (
     <div className="App">
-      {/* {routes} */}
-      <ImageUpload/>
-
-      {/* <Layout role={role}>
-      </Layout> */}
+      {routes}
     </div>
   );
 }

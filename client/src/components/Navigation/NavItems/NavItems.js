@@ -13,14 +13,17 @@ const NavItems = () => {
     teacher: (
       <ul className={styles.NavItems}>
         <li>
-            <NavLink to='/tests' activeClassName={styles.active}>Tests</NavLink>
-          </li>
-          <li>
-            <NavLink to='/students' activeClassName={styles.active}>Students</NavLink>
-          </li>
+          <NavLink to='/tests' activeClassName={styles.active}>My tests</NavLink>
+        </li>
+        <li>
+          <NavLink to='/testcreator' activeClassName={styles.active}>Test creator</NavLink>
+        </li>
+        <li>
+          <NavLink to='/students' activeClassName={styles.active}>Students</NavLink>
+        </li>
       </ul>
     ),
-    student: (<div className={styles.Welcome}>Welcome {student.name}!</div>)
+    student: (<div className={styles.Welcome}><span>Hello</span> {student.name}!</div>)
   };
 
   return (

@@ -29,7 +29,6 @@ const StudentTestList = props => {
   return (
     <div>
       <div className={styles.ListType}>
-        {console.log(props.student)}
         {listTitle}
       </div>
       <div className={styles.StudentTestList}>

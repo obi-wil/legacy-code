@@ -1,5 +1,58 @@
 @import '../../../../../styles/App.scss';
 
 .StudentProgress {
-  background-color: $color-dark;
+  background-color: $color-bg2;
+  
+  .Header {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .Pending {
+    color: $color-red;
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+  
+  .Completed {
+    color: darken($color-green, 10%);
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .TestContainer {
+
+    display: flex;
+    justify-content: space-between;
+
+    .Test {
+      box-shadow: 1px 1px 7px 1px #ccc;
+      margin: 0.4rem;
+      padding: 1rem;
+      width: 50%;
+      margin-bottom: 2rem;
+
+      
+      .TestTitle {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        
+        div {
+          font-weight: 500;
+        }
+        
+      }
+      .TestQuestions {
+        padding: 0 0.5rem 0 1.5rem;
+        font-style: italic;
+      }
+      
+    }
+  }
+  
+  .PendingContainer {
+    padding: 0rem 4rem;
+    font-style: italic;
+  }
 }

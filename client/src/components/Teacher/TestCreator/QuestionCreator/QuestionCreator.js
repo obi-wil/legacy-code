@@ -29,6 +29,11 @@ const QuestionCreator = props => {
           <option value="c">c</option>
           <option value="d">d</option>
         </select>
+        <input type="file" 
+          placeholder="Choose image"
+          name="selectedImage"
+          className={styles.ImageInput}
+        />
         <div className={styles.Button}>
 
           <CreateButton type={'submit'}>Add Question</CreateButton>

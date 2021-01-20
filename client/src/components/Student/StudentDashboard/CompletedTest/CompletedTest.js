@@ -7,6 +7,7 @@ const CompletedTest = props => {
     <div className={styles.CompletedTest}>
       <div className={styles.TestTitle}>
         <p>{props.test.title}</p>
+        <i className="fas fa-check"></i>
       </div>
     </div>
   );

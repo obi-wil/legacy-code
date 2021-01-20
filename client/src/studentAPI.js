@@ -4,9 +4,16 @@ export function getStudents () {
   return fetchStudents(baseUrl);
 };
 
-export function getStudent (id) {
-  return fetchStudents(`${baseUrl}/${id}`, {
-    method: 'GET'
+// export function getStudent (id) {
+//   return fetchStudents(`${baseUrl}/${id}`, {
+//     method: 'GET'
+//   });
+// };
+export function getStudent (name) {
+  return fetchStudents(`${baseUrl}`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name: name})
   });
 };
 

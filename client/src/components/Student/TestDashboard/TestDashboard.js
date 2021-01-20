@@ -33,8 +33,8 @@ const TestDashboard = props => {
   return (
     <div className={styles.TestDashboard}>
       <div className={styles.Content}>
-        {console.log('test dashboard currentq', currentQ)}
-        {showingFeedback ? <Feedback quizzResults={quizzResults}/> : question}
+        {showingFeedback ? <Feedback quizzResults={quizzResults} 
+        confetti={showingFeedback}/> : question}
       </div>
       <div className={styles.Contentbg}/>
     </div>
@@ -42,13 +42,3 @@ const TestDashboard = props => {
 };
 
 export default TestDashboard;
-
-
-// Only now
-// import { fetchQuizz } from '../../../store/actions/testActions';
-
-  // Only now
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchQuizz('6000a17770723cc5f2280620'));
-  // }, [dispatch]);

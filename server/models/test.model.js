@@ -7,7 +7,8 @@ const TestSchema = mongoose.Schema({
   questions: [{
     question: {type: String, required: true},
     options: {type: [], required: true},
-    answer: {type: String, required: true}
+    answer: {type: String, required: true},
+    image: {type: String, required: false}
   }],
   assignedto: {type: [String], required: true, default: []},
   finishedby: {type: [String], required: true, default: []},

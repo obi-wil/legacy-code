@@ -9,6 +9,11 @@ const QuestionCard = props => {
         className={`far fa-trash-alt ${styles.Bin}`}
         onClick={() => props.trashHandler(props.quest.question)}/>
       <div className={styles.QuestionTitle}>{props.quest.question}</div>
+      {props.quest.image ? (
+        <div className={styles.Image}>
+          <img src={props.quest.image} height='100%' alt='question card'/>
+        </div>
+      ) : null}
       <div className={styles.Answers}>
         {props.quest.options
           .map((opt, i) => (

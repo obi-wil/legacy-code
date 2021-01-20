@@ -15,12 +15,8 @@ const LogoutButton = props => {
     }));
   }
 
-
   return (
-
-
-
-    <div className={styles.LogoutButton} onClick={logoutHandler}>
+    <div className={props.ipad ? styles.LogoutButtonIpad : styles.LogoutButton} onClick={logoutHandler}>
       Log out
     </div>
   );

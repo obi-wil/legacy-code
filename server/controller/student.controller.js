@@ -12,14 +12,24 @@ const getStudents = async (req, res) => {
 
 const postStudent = async (req, res) => {
   try {
-    const result = await student.create(req.body);
+    const result = await student.find({name: req.body.name});
     res.status(201);
-    res.send(result);
+    res.send(result[0]);
   } catch (e) {
     res.status(500);
     res.send(e);
   }
 };
+// const postStudent = async (req, res) => {
+//   try {
+//     const result = await student.create(req.body);
+//     res.status(201);
+//     res.send(result);
+//   } catch (e) {
+//     res.status(500);
+//     res.send(e);
+//   }
+// };
 
 const postStudents = async (req, res) => {
   try {
@@ -36,6 +46,7 @@ const getStudent = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await student.findOne({_id: id});
+    
     res.send(result);
   } catch (e) {
     res.status(500);

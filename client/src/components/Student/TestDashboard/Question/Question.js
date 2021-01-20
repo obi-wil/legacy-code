@@ -1,4 +1,4 @@
-import React, { useState, /* useEffect */ } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -16,10 +16,8 @@ const Question = props => {
   const progress = useSelector(state => state.progress);
   const student = useSelector(state => state.currentStudent);
 
-  // useEffect(() => {}, [props.currQuest]);
-
+  // Submit to DB to check
   const submitAnswerHandler = (userAnswer) => {
-
     const answerObject = {
       learner: true,
       answer: userAnswer,
@@ -63,8 +61,10 @@ const Question = props => {
 
   return (
     <div className={styles.Question}>
-      <div className={styles.QuestionTitle}>
+      <div className={props.question.image ? styles.QuestionTitleAndImage : styles.QuestionTitle}>
         {props.question.question} 
+        {props.question.image ? <img style={{height: '250px', borderRadius: '10px'}} src={props.question.image}/> : null}
+        {console.log(props.question)}
       </div>
       <div className={styles.Options}>
         {

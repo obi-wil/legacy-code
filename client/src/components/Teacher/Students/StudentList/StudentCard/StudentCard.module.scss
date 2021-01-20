@@ -16,23 +16,40 @@
 
   .StudentActions {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 20%;
+    width: 30%;
 
-    i {
-      font-size: 1.2rem;
-      margin: 0 50px 0 10px;
-    }
+    .StudentActionsItem {
 
-    .Tick {
-      font-size: 0.8rem;
-      color: darken($color-green, 10%);
-    }
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 35px;
 
-    i:hover {
-      cursor: pointer;
-      color: lighten($color-dark, 10%);
+      i {
+        font-size: 1.2rem;
+      }
+
+      .Tick {
+        font-size: 0.9rem;
+        color: darken($color-green, 10%);
+        margin-left: 6px;
+      }
+      .Circle {
+        margin-left: 6px;
+        font-size: 0.5rem;
+        color: $color-red;
+      }
+
+      .Chart:hover {
+        cursor: pointer;
+        color: lighten($color-dark, 10%);
+      }
     }
   }
+}
+
+.StudentCard:hover {
+  background-color: $color-bg;
 }
