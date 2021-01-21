@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from '../../../store/actions/authActions';
 import styles from './LoginPage.module.scss';
 
-const LoginPage = props => {
+const LoginPage = () => {
 
   const role = useSelector(state => state.role);
   const dispatch = useDispatch();
