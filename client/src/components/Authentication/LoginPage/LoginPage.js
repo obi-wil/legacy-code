@@ -10,6 +10,8 @@ const LoginPage = () => {
 
   const submitUserHandler = (e) => {
     e.preventDefault();
+    console.log(e.target.personname, 'e.target.personnamez');
+    console.log(e.target.password, 'e.target.password');
     dispatch(
       authenticate({
         name: e.target.personname.value,
