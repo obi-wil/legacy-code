@@ -5,38 +5,41 @@ import { authenticate } from '../../../store/actions/authActions';
 import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
-
-  const role = useSelector(state => state.role);
+  const role = useSelector((state) => state.role);
   const dispatch = useDispatch();
 
   const submitUserHandler = (e) => {
     e.preventDefault();
-    dispatch(authenticate({
-      name: e.target.personname.value,
-      pw: e.target.password.value
-    }));
+    dispatch(
+      authenticate({
+        name: e.target.personname.value,
+        pw: e.target.password.value,
+      }),
+    );
   };
 
-  useEffect(() => {}, [role])
+  useEffect(() => {}, [role]);
 
   return (
     <div className={styles.LoginPage}>
       <div className={styles.Login}>
         <form onSubmit={submitUserHandler}>
-          <p>Username</p>
+          <label htmlFor="user-input">Username</label>
           <input
-            type="text" 
-            name="personname" 
-            placeholder="Enter Username" 
+            id="user-input"
+            type="text"
+            name="personname"
+            placeholder="Enter Username"
             autoComplete="off"
           />
-          <p>Password</p>
+          <label htmlFor="password-input">Password</label>
           <input
-            type="password" 
-            name="password" 
+            id="password-input"
+            type="password"
+            name="password"
             placeholder="Enter Password"
           />
-          <input type="submit" value="Log in"/>
+          <input type="submit" value="Log in" />
         </form>
       </div>
     </div>
