@@ -1,24 +1,14 @@
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import { reduxRender } from './utils/test-utils';
 import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from './store/reducers/reducers';
 import App from './App';
-const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 test('renders learn react link', () => {
-  render(
+  reduxRender(
     <BrowserRouter>
-    <Provider store={store}>
-  <App />
-  </Provider>
-  </BrowserRouter>
+      <App />
+    </BrowserRouter>,
   );
 
   // const linkElement = screen.getByText(/learn react/i);
   // expect(linkElement).toBeInTheDocument();
 });
-
-
-

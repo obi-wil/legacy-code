@@ -1,26 +1,27 @@
 import React from 'react';
-import { fireEvent, render, screen } from '../../../../utils/test-utils';
+import { fireEvent, reduxRender, screen } from '../../../../utils/test-utils';
 import LoginPage from '../LoginPage';
 
 // afterEach(cleanup);
 
 describe('Login Form', () => {
   it('should render the login form', () => {
-    render(<LoginPage />);
+    reduxRender(<LoginPage />);
     const formUser = screen.getByLabelText('Username');
     const formPassword = screen.getByLabelText('Password');
     const button = screen.getByRole('button', { name: /Log in/i });
+    console.log(button);
     expect(formUser).toBeInTheDocument();
     expect(formPassword).toBeInTheDocument();
     expect(button).toBeInTheDocument();
   });
 
   it('should correctly submit the form', () => {
+    reduxRender(<LoginPage />);
     const button = screen.getByRole('button', {
       name: /Log in/i,
       hidden: true,
     });
-    console.log('button', button);
 
     fireEvent.submit(button); // verify what the submit event does
   });
