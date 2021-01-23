@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { authenticate } from '../../../store/actions/authActions';
 import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
-  const role = useSelector((state) => state.role);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [pw, setPw] = useState('');
@@ -19,8 +18,6 @@ const LoginPage = () => {
       }),
     );
   };
-
-  useEffect(() => {}, [role]);
 
   return (
     <div className={styles.LoginPage}>

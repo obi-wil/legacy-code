@@ -11,7 +11,7 @@ import * as Redux from 'react-redux';
 Redux.useSelector = jest.fn();
 Redux.useDispatch = () => jest.fn();
 
-// mocks submit
+// mocks authenticate dispatcher
 jest.mock('../../../../store/actions/authActions', () => {
   return {
     authenticate: jest.fn((data) => {
@@ -35,7 +35,7 @@ describe('Login Form', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('should correctly submit the form', () => {
+  it('should correctly dispatch the auth action at submit', () => {
     reduxRender(<LoginPage />);
     const button = screen.getByRole('button', {
       name: /Log in/i,
@@ -53,23 +53,6 @@ describe('Login Form', () => {
     userEvent.click(button); // verify what the submit event does
 
     expect(authenticate).toHaveBeenCalledTimes(1);
-    expect(authenticate).toHaveBeenCalledWith({
-      name: 'Andrea',
-      pw: '123456',
-    });
+    expect(authenticate).toHaveBeenCalledWith({ name: 'Andrea', pw: '123456' });
   });
 });
-
-// test('should correctly dispatch the user', () => {
-
-// })
-
-// mocks --> to mimick calls to API/Database
-// first you require your db model
-// const database = require("../../../../../../server/models/student.model")
-// jest.mock("module that you want to mock")
-// database.getUser = jest.fn(() => {
-//   return {
-//     //something
-//   }
-// })
