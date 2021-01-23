@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { authenticate } from '../../../store/actions/authActions';
 import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
-  const role = useSelector((state) => state.role);
   const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [pw, setPw] = useState('');
 
   const submitUserHandler = (e) => {
     e.preventDefault();
     dispatch(
       authenticate({
-        name: e.target.personname.value,
-        pw: e.target.password.value,
+        name,
+        pw,
       }),
     );
   };
-
-  useEffect(() => {}, [role]);
 
   return (
     <div className={styles.LoginPage}>
@@ -31,6 +30,8 @@ const LoginPage = () => {
             name="personname"
             placeholder="Enter Username"
             autoComplete="off"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
           />
           <label htmlFor="password-input">Password</label>
           <input
@@ -38,6 +39,8 @@ const LoginPage = () => {
             type="password"
             name="password"
             placeholder="Enter Password"
+            onChange={(e) => setPw(e.target.value)}
+            value={pw}
           />
           <input type="submit" value="Log in" />
         </form>
