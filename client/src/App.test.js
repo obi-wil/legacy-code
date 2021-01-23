@@ -1,14 +1,14 @@
 import { reduxRender } from './utils/test-utils';
 import { BrowserRouter } from 'react-router-dom';
+import { screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  reduxRender(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-  );
-
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  test('renders App component', () => {
+    reduxRender(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>,
+    );
+  });
 });
