@@ -47,3 +47,6 @@ Thumbs.db
 
 # Environment Variables
 .env
+
+# eslint config
+.eslintcache
