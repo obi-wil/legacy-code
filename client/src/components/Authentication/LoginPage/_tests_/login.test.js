@@ -3,11 +3,20 @@ import { cleanup, reduxRender, screen } from '../../../../utils/test-utils';
 import userEvent from '@testing-library/user-event';
 import LoginPage from '../LoginPage';
 import { authenticate } from '../../../../store/actions/authActions';
+import { mockState } from '../../../../utils/mocks.global';
+import { deserialize, serialize } from 'v8';
+import * as Redux from 'react-redux';
+
+// redux mocks
+Redux.useSelector = jest.fn();
+Redux.useDispatch = () => jest.fn();
 
 // mocks submit
 jest.mock('../../../../store/actions/authActions', () => {
   return {
-    authenticate: jest.fn((data) => data),
+    authenticate: jest.fn((data) => {
+      return { type: 'test', payload: data };
+    }),
   };
 });
 
@@ -15,7 +24,9 @@ afterEach(cleanup);
 
 describe('Login Form', () => {
   it('should render the login form', () => {
-    reduxRender(<LoginPage />);
+    reduxRender(<LoginPage />, {
+      initialState: deserialize(serialize(mockState)),
+    });
     const formUser = screen.getByLabelText('Username');
     const formPassword = screen.getByLabelText('Password');
     const button = screen.getByRole('button', { name: /Log in/i });
@@ -25,13 +36,11 @@ describe('Login Form', () => {
   });
 
   it('should correctly submit the form', () => {
-    // const onSubmit = jest.fn();
     reduxRender(<LoginPage />);
-    // const button = screen.getByRole('button', {
-    //   name: /Log in/i,
-    //   hidden: true,
-    // });
-
+    const button = screen.getByRole('button', {
+      name: /Log in/i,
+      hidden: true,
+    });
     const formUser = screen.getByLabelText(/Username/i);
     const formPassword = screen.getByLabelText(/Password/i);
 
@@ -41,10 +50,11 @@ describe('Login Form', () => {
     expect(formUser).toHaveValue('Andrea');
     expect(formPassword).toHaveValue('123456');
 
-    userEvent.click(screen.getByRole('button', { name: /Log in/i })); // verify what the submit event does
+    userEvent.click(button); // verify what the submit event does
 
+    expect(authenticate).toHaveBeenCalledTimes(1);
     expect(authenticate).toHaveBeenCalledWith({
-      personname: 'Andrea',
+      name: 'Andrea',
       pw: '123456',
     });
   });
