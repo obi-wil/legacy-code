@@ -6,6 +6,7 @@ import { authenticate } from '../../../../store/actions/authActions';
 import { mockState } from '../../../../utils/mocks.global';
 import { deserialize, serialize } from 'v8';
 import * as Redux from 'react-redux';
+import LogoutButton from '../LogoutButton';
 
 // redux mocks
 Redux.useSelector = jest.fn();
@@ -54,5 +55,20 @@ describe('Login Form', () => {
 
     expect(authenticate).toHaveBeenCalledTimes(1);
     expect(authenticate).toHaveBeenCalledWith({ name: 'Andrea', pw: '123456' });
+  });
+});
+
+describe('Logout', () => {
+  test('should correctly render the logout component', () => {
+    reduxRender(<LogoutButton />);
+    const logoutButton = screen.getByText(/Log out/i);
+    expect(logoutButton).toBeInTheDocument();
+  });
+
+  test('should correctly dispatch the auth action', () => {
+    reduxRender(<LogoutButton />);
+    const logoutButton = screen.getByText(/Log out/i);
+    userEvent.click(logoutButton);
+    expect(authenticate).toHaveBeenCalledTimes(1);
   });
 });
