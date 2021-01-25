@@ -31,7 +31,6 @@ const LoginPage = () => {
             placeholder="Enter Username"
             autoComplete="off"
             onChange={(e) => setName(e.target.value)}
-            value={name}
           />
           <label htmlFor="password-input">Password</label>
           <input
@@ -40,7 +39,6 @@ const LoginPage = () => {
             name="password"
             placeholder="Enter Password"
             onChange={(e) => setPw(e.target.value)}
-            value={pw}
           />
           <input type="submit" value="Log in" />
         </form>
