@@ -1,12 +1,16 @@
 import React from 'react';
+import * as Redux from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { reduxRender, screen } from '../../../utils/test-utils';
+import { reduxRender, screen, cleanup } from '../../../utils/test-utils';
+import { mockState } from '../../../utils/mocks.global';
+import { deserialize, serialize } from 'v8';
 import NavBar from '../NavBar/NavBar';
 import NavItems from '../NavItems/NavItems';
 
-// TODO: assert role teacher renders vader image
+// Redux.useSelector = jest.fn();
+// Redux.useDispatch = () => jest.fn(); // need??
 
-// TODO: assert role student renders woman image
+afterEach(cleanup);
 
 describe('Teacher role', () => {
   it('should render teacher links', () => {
@@ -40,7 +44,19 @@ describe('Teacher role', () => {
       </BrowserRouter>,
     );
     const teacherAvatar = screen.getByAltText(/teacher avatar/i);
-    expect(teacherAvatar).toBeInTheDocument();
+    expect(teacherAvatar).toBeVisible();
+  });
+});
+
+describe('Student role', () => {
+  it('should render student avatar', () => {
+    reduxRender(
+      <BrowserRouter>
+        <NavBar role="student" />
+      </BrowserRouter>,
+    );
+    const studentAvatar = screen.getByAltText(/student avatar/i);
+    expect(studentAvatar).toBeVisible();
   });
 });
 
