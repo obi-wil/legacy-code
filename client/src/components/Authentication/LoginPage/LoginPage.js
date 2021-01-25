@@ -6,15 +6,13 @@ import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [pw, setPw] = useState('');
 
   const submitUserHandler = (e) => {
     e.preventDefault();
     dispatch(
       authenticate({
-        name,
-        pw,
+        name: e.target.personname.value,
+        pw: e.target.password.value,
       }),
     );
   };
@@ -30,8 +28,6 @@ const LoginPage = () => {
             name="personname"
             placeholder="Enter Username"
             autoComplete="off"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
           />
           <label htmlFor="password-input">Password</label>
           <input
@@ -39,8 +35,6 @@ const LoginPage = () => {
             type="password"
             name="password"
             placeholder="Enter Password"
-            onChange={(e) => setPw(e.target.value)}
-            value={pw}
           />
           <input type="submit" value="Log in" />
         </form>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { cleanup, reduxRender, screen } from '../../../../utils/test-utils';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, reduxRender, screen } from '../../../../utils/test-utils';
 import LoginPage from '../LoginPage';
 import { authenticate } from '../../../../store/actions/authActions';
 import { mockState } from '../../../../utils/mocks.global';
@@ -25,12 +24,11 @@ afterEach(cleanup);
 
 describe('Login Form', () => {
   it('should render the login form', () => {
-    reduxRender(<LoginPage />, {
-      initialState: deserialize(serialize(mockState)),
-    });
+    reduxRender(<LoginPage />);
     const formUser = screen.getByLabelText('Username');
     const formPassword = screen.getByLabelText('Password');
     const button = screen.getByRole('button', { name: /Log in/i });
+    console.log(button);
     expect(formUser).toBeInTheDocument();
     expect(formPassword).toBeInTheDocument();
     expect(button).toBeInTheDocument();
@@ -42,8 +40,6 @@ describe('Login Form', () => {
       name: /Log in/i,
       hidden: true,
     });
-    const formUser = screen.getByLabelText(/Username/i);
-    const formPassword = screen.getByLabelText(/Password/i);
 
     userEvent.type(formUser, 'Andrea');
     userEvent.type(formPassword, '123456');
