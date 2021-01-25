@@ -15,15 +15,12 @@ app.use('/test', testrouter);
 app.use('/student', studentrouter);
 app.use('/quiz', quizzrouter);
 
-
 const PORT = 3002;
 (async () => {
   try {
     await db.conn;
     app.listen(PORT, () => console.log('http://localhost:3002'));
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 })();
-
-// app.listen(PORT, () => console.log('running @ http://localhost:3002 '));
