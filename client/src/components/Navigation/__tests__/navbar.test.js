@@ -1,14 +1,9 @@
 import React from 'react';
-import * as Redux from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { reduxRender, screen, cleanup } from '../../../utils/test-utils';
-import { mockState } from '../../../utils/mocks.global';
 import { deserialize, serialize } from 'v8';
 import NavBar from '../NavBar/NavBar';
 import NavItems from '../NavItems/NavItems';
-
-// Redux.useSelector = jest.fn();
-// Redux.useDispatch = () => jest.fn(); // need??
 
 afterEach(cleanup);
 
@@ -58,8 +53,42 @@ describe('Student role', () => {
     const studentAvatar = screen.getByAltText(/student avatar/i);
     expect(studentAvatar).toBeVisible();
   });
+
+  it('should render student greeting', () => {
+    const state = { role: 'student', currentStudent: { name: 'Jane' } };
+
+    reduxRender(
+      <BrowserRouter>
+        <NavItems />
+      </BrowserRouter>,
+      { initialState: deserialize(serialize(state)) },
+    );
+
+    const name = screen.getByText(/jane/i);
+    expect(name).toBeInTheDocument();
+  });
+
+  it('should not render teacher links', () => {
+    const state = { role: 'student', currentStudent: { name: 'Jane' } };
+
+    reduxRender(
+      <BrowserRouter>
+        <NavItems />
+      </BrowserRouter>,
+      { initialState: deserialize(serialize(state)) },
+    );
+
+    const myTests = screen.queryByRole('link', {
+      name: /my tests/i,
+    });
+    const testCreator = screen.queryByRole('link', {
+      name: /test creator/i,
+    });
+    const students = screen.queryByRole('link', {
+      name: /students/i,
+    });
+    expect(myTests).not.toBeInTheDocument();
+    expect(testCreator).not.toBeInTheDocument();
+    expect(students).not.toBeInTheDocument();
+  });
 });
-
-// TODO: assert if role student renders student greeting
-
-// TODO: assert if role student renders student links
