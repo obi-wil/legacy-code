@@ -2,6 +2,7 @@ export interface Test {
   title: string;
   questions: Question[];
   id: string;
+  _id: string;
   assignedTo: string[];
   finsihedby: string[];
   testtype: string;
@@ -22,10 +23,12 @@ export interface PendingTest {
 }
 
 export interface Question {
+  _id: string;
   question: string;
   options: string[];
   answer: string;
   correct: boolean;
+  image: string;
 }
 
 export interface CompletedTest {
@@ -38,6 +41,7 @@ export interface CompletedTest {
 }
 
 export interface Student {
+  _id: string;
   name: string;
   pendingtests: PendingTest[];
   completedtests: CompletedTest[];
@@ -49,5 +53,5 @@ export interface State {
   students: string[];
   currentQuizz: Question;
   currentStudent: Student;
-  progress: CompletedTest[];
+  progress: Question[];
 }
