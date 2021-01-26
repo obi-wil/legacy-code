@@ -3,9 +3,14 @@ import React from 'react';
 import PendingTest from '../PendingTest/PendingTest';
 import CompletedTest from '../CompletedTest/CompletedTest';
 import styles from './StudentTestList.module.scss';
+import { Student } from '../../../../Interfaces';
 
-const StudentTestList = props => {
+interface Prop {
+  student: Student;
+  listType: string;
+}
 
+const StudentTestList = (props: Prop) => {
   let listTitle;
 
   let listContent;
@@ -13,27 +18,25 @@ const StudentTestList = props => {
   if (props.listType === 'pendingtests') {
     listTitle = 'New Challenges!';
     listContent = props.student.pendingtests ? (
-      props.student.pendingtests.map((t) => (
-        <PendingTest key={t.id} test={t}/>
-      ))
-    ) : (<p>You have no tests!</p>);
+      props.student.pendingtests.map((t) => <PendingTest key={t.id} test={t} />)
+    ) : (
+      <p>You have no tests!</p>
+    );
   } else {
     listTitle = 'Completed';
     listContent = props.student.pendingtests ? (
       props.student.completedtests.map((t) => (
-        <CompletedTest key={t.id} test={t}/>
+        <CompletedTest key={t.id} test={t} />
       ))
-    ) : (<p>You have no tests!</p>);
+    ) : (
+      <p>You have no tests!</p>
+    );
   }
 
   return (
     <div>
-      <div className={styles.ListType}>
-        {listTitle}
-      </div>
-      <div className={styles.StudentTestList}>
-        {listContent}
-      </div>
+      <div className={styles.ListType}>{listTitle}</div>
+      <div className={styles.StudentTestList}>{listContent}</div>
     </div>
   );
 };

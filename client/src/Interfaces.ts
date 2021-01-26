@@ -1,33 +1,46 @@
 export interface Test {
   title: string;
   questions: Question[];
+  id: string;
   assignedTo: string[];
   finsihedby: string[];
   testtype: string;
+}
+
+export interface CompletedTest {
+  id: string;
+  title: string;
+  result: {
+    percentage: number;
+    questions: Question[];
+  };
+}
+
+export interface PendingTest {
+  id: string;
+  title: string;
 }
 
 export interface Question {
   question: string;
   options: string[];
   answer: string;
-  image: string;
+  correct: boolean;
 }
 
-export interface completedTest {
+export interface CompletedTest {
   id: string;
   title: string;
   result: {
-    [k: string]: {
-      percentage: number;
-      questions: Question[];
-    };
+    percentage: number;
+    questions: Question[];
   };
 }
 
 export interface Student {
   name: string;
-  pendingtests: Test[];
-  completedTests: [];
+  pendingtests: PendingTest[];
+  completedtests: CompletedTest[];
 }
 
 export interface State {
@@ -36,5 +49,5 @@ export interface State {
   students: string[];
   currentQuizz: Question;
   currentStudent: Student;
-  progress: completedTest[];
+  progress: CompletedTest[];
 }

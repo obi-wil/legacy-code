@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from './CompletedTest.module.scss';
+import { CompletedTest } from '../../../../Interfaces';
 
-const CompletedTest = props => {
+interface Prop {
+  test: CompletedTest;
+}
 
+const CompletedTest = (props: Prop) => {
   return (
     <div className={styles.CompletedTest}>
       <div className={styles.TestTitle}>
