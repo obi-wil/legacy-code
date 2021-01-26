@@ -8,18 +8,19 @@
     "prettier/react"
   ],
   "rules": {
-    "react/prop-types": 0,
-    "no-console": 1,
-    "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 1
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-redeclare": "off",
+    "prefer-const": "off"
   },
-  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "parserOptions": {
-    "ecmaVersion": 12,
+    "ecmaVersion": 9,
     "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "project": "tsconfig.json"
   },
   "env": {
     "es6": true,
