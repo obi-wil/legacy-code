@@ -5,7 +5,11 @@ import LogoutButton from '../../Authentication/LoginPage/LogoutButton';
 import NavItems from '../NavItems/NavItems';
 import styles from './NavBar.module.scss';
 
-const NavBar = (props) => {
+interface Prop {
+  role: string;
+}
+
+const NavBar = (props: Prop) => {
   return (
     <div className={styles.TopBar}>
       <div className={styles[props.role]}>
