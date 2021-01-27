@@ -6,6 +6,7 @@ export interface Test {
   assignedTo: string[];
   finsihedby: string[];
   testtype: string;
+  question?: Question;
 }
 
 export interface CompletedTest {
@@ -51,7 +52,7 @@ export interface State {
   tests: Test[];
   role: string;
   students: string[];
-  currentQuizz: Question;
+  currentQuizz: Test;
   currentStudent: Student;
   progress: Question[];
 }
