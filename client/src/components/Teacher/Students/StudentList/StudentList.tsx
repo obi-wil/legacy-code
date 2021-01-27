@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { State } from '../../../../Interfaces';
 import { fetchStudents } from '../../../../store/actions/studentListActions';
 import CreateButton from '../../../UI/CreateButton/CreateButton';
 import ImportStudent from './ImportStudent/ImportStudent';
 import ImportStudentsCard from './ImportStudentsCard/ImportStudentsCard';
 import StudentCard from './StudentCard/StudentCard';
-
 import styles from './StudentList.module.scss';
 
-const StudentList = (props) => {
+const StudentList = () => {
   const [importingSS, setImportingSS] = useState(false);
 
-  const students = useSelector((state) => state.students);
+  const students = useSelector((state: State) => state.students);
   const dispatch = useDispatch();
 
   useEffect(() => {
