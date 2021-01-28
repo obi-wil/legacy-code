@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev:all": "concurrently \"cd server && npm run dev:server\" \"cd client && npm run start\""
+    "dev:all": "concurrently \"cd server && npm run dev:server\" \"cd client && npm run start\"",
+    "test:client": "cd client && npm run test"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
