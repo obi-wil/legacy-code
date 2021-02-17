@@ -9,7 +9,7 @@ const LoginPage = () => {
   const [name, setName] = useState('');
   const [pw, setPw] = useState('');
 
-  const submitUserHandler = (e) => {
+  const submitUserHandler = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(
       authenticate({

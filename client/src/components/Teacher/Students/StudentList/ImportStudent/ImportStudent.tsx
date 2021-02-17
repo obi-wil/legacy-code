@@ -6,18 +6,17 @@ import CreateButton from '../../../../UI/CreateButton/CreateButton';
 import { importStudents } from '../../../../../store/actions/studentListActions';
 import styles from './ImportStudent.module.scss';
 
-const ImportStudent = props => {
-
+const ImportStudent = (props) => {
   const [highlighted, setHighlighted] = useState(false);
   const [ss, setSs] = useState([]);
 
   const dispatch = useDispatch();
 
-  const dropHandler = e => {
+  const dropHandler = (e: React.DragEvent) => {
     e.preventDefault();
     setHighlighted(false);
     Array.from(e.dataTransfer.files)
-      .filter((file) => file.type === "text/csv")
+      .filter((file) => file.type === 'text/csv')
       .forEach(async (file) => {
         const text = await file.text();
         const result = parse(text, { header: true });
@@ -35,8 +34,10 @@ const ImportStudent = props => {
 
   return (
     <div className={styles.ImportStudent}>
-       <div
-        className={`${styles.DropDiv} ${highlighted ? styles.Highlighted : styles.NotHighlighted}`}
+      <div
+        className={`${styles.DropDiv} ${
+          highlighted ? styles.Highlighted : styles.NotHighlighted
+        }`}
         onDragEnter={() => setHighlighted(true)}
         onDragLeave={() => setHighlighted(false)}
         onDragOver={(e) => e.preventDefault()}
@@ -45,9 +46,7 @@ const ImportStudent = props => {
         Drop your files here
       </div>
       <div className={styles.DropList}>
-        {ss.length ? ss.map((st, i) => (
-          <p key={i}>{st.name}</p>
-        )) : null}
+        {ss.length ? ss.map((st, i) => <p key={i}>{st.name}</p>) : null}
       </div>
       <div className={styles.Buttons}>
         <CreateButton clicked={saveHandler}>

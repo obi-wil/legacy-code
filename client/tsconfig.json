@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "target": "ES2018",
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "strict": false,
+    "declaration": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "typeRoots": ["./node_modules/@types", "./global.d.ts"],
+    "esModuleInterop": true
+  },
+  "include": ["src"]
+}
