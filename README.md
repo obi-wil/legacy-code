@@ -8,8 +8,6 @@ This is a refactor of a colleague's app that allow teachers to create quizzes an
 - Refactor JSX code into TypeScript.
 - Implementation of unit tests for the main components in the client using Jest to improve coverage.
 
-## Collaborators
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
