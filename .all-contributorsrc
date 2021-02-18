@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "AndreaUndecimo",
+      "name": "Andrea Undecimo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63156873?v=4",
+      "profile": "https://www.linkedin.com/in/andreaundecimo/",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "legacy-code",
+  "projectOwner": "obi-wil",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
